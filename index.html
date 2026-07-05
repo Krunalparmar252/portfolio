@@ -213,7 +213,7 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-[10px] font-mono uppercase tracking-wider bg-green-950/50 text-green-400 border border-green-800/40 px-2.5 py-1 rounded-md">Completed</span>
-                            <div class="text-space-700 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-recycle text-xl"></i></div>
+                            <div class="text-gray-500 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-recycle text-xl"></i></div>
                         </div>
                         <h3 class="text-lg font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">Waste Classification Neural Pipeline</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -231,7 +231,7 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-[10px] font-mono uppercase tracking-wider bg-green-950/50 text-green-400 border border-green-800/40 px-2.5 py-1 rounded-md">Completed</span>
-                            <div class="text-space-700 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-heart-pulse text-xl"></i></div>
+                            <div class="text-gray-500 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-heart-pulse text-xl"></i></div>
                         </div>
                         <h3 class="text-lg font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">Predictive Heart Disease Diagnostic Tool</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -249,7 +249,7 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-[10px] font-mono uppercase tracking-wider bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2.5 py-1 rounded-md">In Active Development</span>
-                            <div class="text-space-700 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-gears text-xl"></i></div>
+                            <div class="text-gray-500 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-gears text-xl"></i></div>
                         </div>
                         <h3 class="text-lg font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">MLOps Real Estate Analytics Platform</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -267,7 +267,7 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-[10px] font-mono uppercase tracking-wider bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2.5 py-1 rounded-md">In Active Development</span>
-                            <div class="text-space-700 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-camera text-xl"></i></div>
+                            <div class="text-gray-500 group-hover:text-blue-500 transition-colors duration-300"><i class="fa-solid fa-camera text-xl"></i></div>
                         </div>
                         <h3 class="text-lg font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">Low-Latency Edge Vision Tracker</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -356,12 +356,12 @@
     <!-- Interactive Footer -->
     <footer class="max-w-5xl mx-auto px-4 py-8 border-t border-space-800/80 text-center text-xs text-gray-500 font-mono flex flex-col sm:flex-row justify-between items-center gap-4">
         <div>
-            &copy; 2026 Krunal Parmar. All Rights Reserved.
+            &copy; <span id="current-year"></span> Krunal Parmar. All Rights Reserved.
         </div>
         <div class="flex items-center gap-2 text-[10px] text-blue-400/80">
             <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
             </span>
             <span>Deployment active & tested via GitHub Actions</span>
         </div>
@@ -399,12 +399,19 @@
 <span class="text-blue-300">"I possess robust core fundamentals in programming (Java, Python, C++), logical engineering principles, and modular system design. I am fully prepared to deploy these technical skills to build industry-level solutions at Tata Consultancy Services."</span>`
         };
 
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
         function runConsoleCmd(cmd) {
             const cleanCmd = cmd.trim().toLowerCase();
+            const escapedCmd = escapeHTML(cmd);
             let response = '';
 
             if (cleanCmd === 'clear') {
-                terminalContent.innerHTML = '';
+                terminalContent.innerHTML = '<p class="text-gray-500 font-mono italic">// Terminal session reset...</p>';
                 return;
             } else if (commands[cleanCmd]) {
                 response = commands[cleanCmd];
@@ -415,7 +422,7 @@
             }
 
             // Print the entered command with styling
-            terminalContent.innerHTML += `<p class="text-gray-300 mt-2"><span class="text-green-500 font-bold">$</span> ${cmd}</p>`;
+            terminalContent.innerHTML += `<p class="text-gray-300 mt-2"><span class="text-green-500 font-bold">$</span> ${escapedCmd}</p>`;
             // Print responsive text output
             terminalContent.innerHTML += `<p class="text-gray-400 ml-4 leading-relaxed">${response}</p>`;
             // Scroll container to base bottom line
@@ -486,6 +493,9 @@
                 console.error("Unable to execute clipboard copy routine: ", err);
             });
         }
+
+        // Initialize Dynamic Content
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
