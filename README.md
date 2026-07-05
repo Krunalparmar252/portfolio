@@ -33,7 +33,14 @@ This portfolio is configured with a CI/CD pipeline to automatically update whene
 You can manually trigger a deployment by:
 1. Navigating to the **Actions** tab in your GitHub repository.
 2. Selecting the **Deploy Portfolio Website** workflow.
-3. Clicking the **Run workflow** dropdown and selecting **Run workflow**.
+3. Clicking the **Run workflow** dropdown and selecting **Run workflow** (ensure the `main` branch is selected).
+
+### Troubleshooting: "Branch is not allowed to deploy"
+If you see an error stating that a branch is not allowed to deploy to `github-pages`:
+1. Go to **Settings** > **Environments**.
+2. Click on **github-pages**.
+3. Under **Deployment branches**, ensure it is set to "All branches" or add your specific branch name.
+4. **Recommended:** Simply merge your changes into the `main` branch, and the deployment will run automatically and successfully.
 
 ## Author
 
