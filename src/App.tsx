@@ -3,9 +3,11 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { WelcomeScreen } from './components/WelcomeScreen';
+import { ScrollProgress } from './components/ScrollProgress';
+import { FloatingAura } from './components/FloatingAura';
 import { NavigationDock } from './components/NavigationDock';
 import { CanvasBackground } from './components/CanvasBackground';
-import { CustomCursor } from './components/CustomCursor';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
@@ -19,6 +21,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const App: React.FC = () => {
   useEffect(() => {
+    // Ensure fresh page visits start at the top welcome greeting
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // Respect prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
@@ -50,16 +58,24 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-[#050714] text-[#f8f7f4] selection:bg-[#3b82f6]/30 selection:text-[#f8f7f4]">
-      {/* Decorative Overlays */}
+      {/* Top Hairline Scroll Progress Indicator */}
+      <ScrollProgress />
+
+      {/* Atmospheric Overlays */}
       <div className="grain-overlay" aria-hidden="true" />
       <div className="ambient-vignette" aria-hidden="true" />
       <CanvasBackground />
-      <CustomCursor />
 
-      {/* Top Dock Navigation */}
+      {/* Floating Ambient Aura & Spatial Elements (replaces old cursor dot/ring) */}
+      <FloatingAura />
+
+      {/* Top Dock Navigation (ThreeUI sable variant) */}
       <NavigationDock />
 
-      {/* Main Flow */}
+      {/* Fullscreen Greeting & Scroll Zoom-Through Sequence */}
+      <WelcomeScreen />
+
+      {/* Main Portfolio Content Flow */}
       <main className="relative z-10">
         <Hero />
         <About />

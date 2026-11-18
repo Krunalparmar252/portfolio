@@ -125,9 +125,19 @@ export const Projects: React.FC = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left: Project Narrative */}
             <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
-                <span>01 // Code Security & AST Intelligence</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
+                  <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
+                  <span>01 // Code Security & AST Intelligence</span>
+                </div>
+                {/* Live AST Radar Indicator */}
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-royal/30 bg-royal/10 text-[9px] font-mono text-royal-soft">
+                  <div className="relative w-2.5 h-2.5 rounded-full border border-royal/50 flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(96,165,250,0.9)_360deg)] animate-radar rounded-full" />
+                    <div className="w-0.5 h-0.5 rounded-full bg-cream" />
+                  </div>
+                  <span>SCANNER LIVE</span>
+                </div>
               </div>
 
               <h3 className="font-serif text-3xl sm:text-4xl text-cream font-normal leading-tight">
@@ -412,9 +422,16 @@ export const Projects: React.FC = () => {
 
             {/* Right: Project Narrative */}
             <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col gap-6">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
-                <span>02 // Local RAG & Scientific NLP</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
+                  <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
+                  <span>02 // Local RAG & Scientific NLP</span>
+                </div>
+                {/* Live Hybrid RRF Indicator */}
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-royal/30 bg-royal/10 text-[9px] font-mono text-royal-soft">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>RRF 94.2% · OLLAMA LOCAL</span>
+                </div>
               </div>
 
               <h3 className="font-serif text-3xl sm:text-4xl text-cream font-normal leading-tight">

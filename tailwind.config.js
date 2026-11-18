@@ -38,7 +38,47 @@ export default {
       },
       spacing: {
         'section': '140px',
-      }
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-16px) rotate(2deg)' },
+        },
+        'float-reverse': {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(14px) rotate(-2deg)' },
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '0.85', transform: 'scale(1.04)' },
+        },
+        'scroll-pill': {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '70%': { transform: 'translateY(8px)', opacity: '0.2' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        radar: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+      },
+      animation: {
+        float: 'float 4s ease-in-out infinite',
+        'float-slow': 'float-slow 7s ease-in-out infinite',
+        'float-reverse': 'float-reverse 6s ease-in-out infinite',
+        'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+        'scroll-pill': 'scroll-pill 1.8s ease-in-out infinite',
+        radar: 'radar 3s linear infinite',
+        shimmer: 'shimmer 4s linear infinite',
+      },
     },
   },
   plugins: [],

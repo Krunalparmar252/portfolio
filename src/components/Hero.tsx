@@ -1,12 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ArrowDownRight, FileText, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowDownRight, FileText, Github, Linkedin, Mail, MapPin, Phone, Radio, Activity } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [utcTime, setUtcTime] = useState<string>('');
+
+  useEffect(() => {
+    // Live real-time clock updating every second
+    const updateTime = () => {
+      const now = new Date();
+      setUtcTime(now.toTimeString().split(' ')[0] + ' UTC');
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -69,10 +81,21 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 px-4 sm:px-8 max-w-content mx-auto"
+      className="relative min-h-[92vh] flex flex-col justify-center pt-28 pb-20 px-4 sm:px-8 max-w-content mx-auto"
     >
+      {/* Floating Decorative Hologram Node in Top Right */}
+      <div className="absolute top-24 right-6 sm:right-12 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(5,7,20,0.6)]">
+        <div className="relative w-8 h-8 rounded-lg bg-royal/10 border border-royal/30 flex items-center justify-center">
+          <Activity className="w-4 h-4 text-royal-soft animate-pulse" />
+        </div>
+        <div className="flex flex-col text-left">
+          <span className="text-[10px] font-mono uppercase text-royal-soft font-semibold">Node Status</span>
+          <span className="text-[11px] font-mono text-cream/90">Autonomous · Active</span>
+        </div>
+      </div>
+
       <div className="flex flex-col items-start gap-8 md:gap-10">
-        {/* Eyebrow badge */}
+        {/* Eyebrow badge + Live Telemetry HUD */}
         <div className="hero-badge flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] uppercase tracking-widest text-muted">
           <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1635]/80 hairline-royal text-royal-soft">
             <span className="w-1.5 h-1.5 rounded-full bg-royal animate-pulse" />
@@ -85,6 +108,14 @@ export const Hero: React.FC = () => {
           </span>
           <span className="text-white/20">/</span>
           <span className="text-cream-soft/90 font-mono">B.Tech CE · 2027</span>
+          <span className="text-white/20 hidden md:inline">/</span>
+          {/* Live Telemetry Pill */}
+          <span className="hidden md:flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-royal/10 border border-royal/30 text-royal-soft text-[10px]">
+            <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
+            <span>LIVE</span>
+            <span className="text-white/30">|</span>
+            <span className="text-cream/90">{utcTime || '19:48:00 UTC'}</span>
+          </span>
         </div>
 
         {/* Display Headline */}
@@ -146,35 +177,29 @@ export const Hero: React.FC = () => {
         <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-4">
           <button
             onClick={() => scrollToSection('projects')}
-            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-royal text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-royal-deep shadow-[0_0_25px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.55)]"
+            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-royal text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-royal-deep shadow-[0_0_25px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.55)] cursor-pointer"
           >
-            <span>Explore Works</span>
+            <span>Explore Projects</span>
             <ArrowDownRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
           </button>
 
           <a
-            href="./Krunal_Resume.pdf"
+            href="/portfolio/Krunal_Resume.pdf"
             download="Krunal_Parmar_Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface hairline-cream hover:border-royal text-cream font-sans text-sm font-normal transition-all duration-300 hover:bg-[#121c40]"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hairline-royal text-cream font-sans text-sm hover:border-royal hover:bg-royal/10 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.15)]"
           >
             <FileText className="w-4 h-4 text-royal-soft" />
-            <span>Download Resume</span>
+            <span>Resume (PDF)</span>
           </a>
 
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hover:bg-white/[0.04] text-muted hover:text-cream font-mono text-xs uppercase tracking-wider transition-all duration-200"
+          <a
+            href="mailto:parmarkrunal252@gmail.com"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hairline text-muted font-sans text-sm hover:text-cream hover:border-white/30 transition-all duration-300"
           >
-            <Mail className="w-3.5 h-3.5 text-royal-soft" />
-            <span>Get in Touch</span>
-          </button>
+            <Mail className="w-4 h-4 text-royal-soft" />
+            <span>Initiate Contact</span>
+          </a>
         </div>
-      </div>
-
-      {/* Decorative vertical rhythm divider */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <span className="font-mono text-[9px] tracking-widest uppercase text-muted">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-royal via-royal/40 to-transparent" />
       </div>
     </section>
   );

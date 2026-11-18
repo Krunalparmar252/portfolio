@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatedTopDock } from '../shaders/animated-top-dock/AnimatedTopDock';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -22,6 +22,28 @@ const SECTION_TARGETS = [
 
 export const NavigationDock: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Reveal dock after user scrolls past the initial welcome greeting
+    const handleScroll = () => {
+      const currentScroll = window.__lenis ? window.__lenis.scroll : window.scrollY;
+      setIsVisible(currentScroll > 160);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (window.__lenis) {
+      window.__lenis.on('scroll', handleScroll);
+    }
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (window.__lenis) {
+        window.__lenis.off('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -58,75 +80,72 @@ export const NavigationDock: React.FC = () => {
       const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
       links.forEach((link, idx) => {
         const isCurrent = idx === activeIdx;
-        link.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+        const item = link.closest<HTMLElement>('.animated-top-dock__item') || link;
+        item.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+        if (isCurrent) {
+          item.setAttribute('data-dock-near', 'true');
+        } else {
+          item.removeAttribute('data-dock-near');
+        }
       });
     };
 
-    const scrollToTarget = (targetId: string) => {
-      const el = document.getElementById(targetId);
-      if (!el) return;
+    // Fast, reliable event delegation on the root nav element (capture phase)
+    const handleNavClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
+      const link = target.closest<HTMLButtonElement>('.animated-top-dock__link');
+      if (!link) return;
+
+      const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
+      const idx = links.indexOf(link);
+      if (idx === -1 || !SECTION_TARGETS[idx]) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const targetId = SECTION_TARGETS[idx].id;
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
 
       isProgrammaticScroll = true;
-      clearTimeout(scrollTimeout);
+      updateActiveItem(idx);
 
-      // If Lenis smooth scroll engine is available, use its native smooth scroll
+      // Perform jitter-free Lenis smooth scroll
       if (window.__lenis) {
-        window.__lenis.scrollTo(el, {
+        window.__lenis.scrollTo(targetEl, {
           offset: -70,
           duration: 1.1,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       } else {
-        const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+        const top = targetEl.getBoundingClientRect().top + window.pageYOffset - 70;
         window.scrollTo({ top, behavior: 'smooth' });
       }
 
+      clearTimeout(scrollTimeout);
       scrollTimeout = window.setTimeout(() => {
         isProgrammaticScroll = false;
       }, 1200);
     };
 
-    // Event delegation on nav container ensures 100% reliable clicks on every child element
-    const handleNavClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-dock-item]');
-      if (!target) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Home logo click
-      if (target.classList.contains('animated-top-dock__logo')) {
-        updateActiveItem(0);
-        scrollToTarget('hero');
-        return;
-      }
-
-      // Link clicks
-      const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
-      const idx = links.indexOf(target);
-      if (idx !== -1 && SECTION_TARGETS[idx]) {
-        updateActiveItem(idx);
-        scrollToTarget(SECTION_TARGETS[idx].id);
-      }
-    };
-
     nav.addEventListener('click', handleNavClick, { capture: true });
 
-    // ScrollTrigger to highlight active item as user scrolls down the page
+    // ScrollTrigger to highlight active dock button
     const triggers: ScrollTrigger[] = [];
-    SECTION_TARGETS.forEach((target, idx) => {
-      const sectionEl = document.getElementById(target.id);
-      if (!sectionEl) return;
+    SECTION_TARGETS.forEach(({ id }, idx) => {
+      const el = document.getElementById(id);
+      if (!el) return;
 
       const st = ScrollTrigger.create({
-        trigger: sectionEl,
-        start: 'top 50%',
-        end: 'bottom 50%',
-        onEnter: () => {
-          if (!isProgrammaticScroll) updateActiveItem(idx);
-        },
-        onEnterBack: () => {
-          if (!isProgrammaticScroll) updateActiveItem(idx);
+        trigger: el,
+        start: 'top center+=80',
+        end: 'bottom center',
+        onToggle: (self) => {
+          if (self.isActive && !isProgrammaticScroll) {
+            updateActiveItem(idx);
+          }
         },
       });
       triggers.push(st);
@@ -142,7 +161,9 @@ export const NavigationDock: React.FC = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center"
+      className={`fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center transition-all duration-500 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'
+      }`}
       role="banner"
     >
       <div
