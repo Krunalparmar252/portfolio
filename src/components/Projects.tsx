@@ -1,7 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, CheckCircle2, ChevronRight, Cpu, GitCommit, Layers, Play, ShieldAlert, Sparkles, Terminal } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Brain,
+  CheckCircle2,
+  Cpu,
+  Database,
+  FileSearch,
+  Filter,
+  Layers,
+  Search,
+  ShieldAlert,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,8 +26,8 @@ export const Projects: React.FC = () => {
   // Active step in Project 1 pipeline simulation
   const [pipelineStep, setPipelineStep] = useState<number>(2);
 
-  // Active tab in Project 2 mock
-  const [activeTab, setActiveTab] = useState<'metrics' | 'assistant'>('metrics');
+  // Active step in Project 2 RAG pipeline simulation
+  const [ragStep, setRagStep] = useState<'hybrid' | 'llm' | 'eval'>('hybrid');
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,9 +58,9 @@ export const Projects: React.FC = () => {
           trigger: card1Ref.current,
           start: 'top 85%',
         },
-        y: 50,
+        y: 45,
         opacity: 0,
-        duration: 1,
+        duration: 0.9,
         ease: 'power3.out',
       });
 
@@ -56,9 +69,9 @@ export const Projects: React.FC = () => {
           trigger: card2Ref.current,
           start: 'top 85%',
         },
-        y: 50,
+        y: 45,
         opacity: 0,
-        duration: 1,
+        duration: 0.9,
         ease: 'power3.out',
       });
     }, sectionRef);
@@ -79,11 +92,11 @@ export const Projects: React.FC = () => {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-16 sm:mb-24">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-gold tracking-widest uppercase">02</span>
-          <span className="w-8 h-[1px] bg-gold/30" />
-          <span className="font-mono text-xs tracking-widest text-muted uppercase">Featured Projects</span>
+          <span className="font-mono text-xs text-royal tracking-widest uppercase">02</span>
+          <span className="w-8 h-[1px] bg-royal/40" />
+          <span className="font-mono text-xs tracking-widest text-muted uppercase">Selected Projects</span>
         </div>
-        <span className="font-mono text-[11px] text-muted uppercase">Curated Works (02)</span>
+        <span className="font-mono text-[11px] text-cream/70 uppercase">Curated Works (02)</span>
       </div>
 
       <div className="flex flex-col gap-24 lg:gap-32">
@@ -92,7 +105,7 @@ export const Projects: React.FC = () => {
         {/* ================================================================ */}
         <div
           ref={card1Ref}
-          className="project-row-1 relative group rounded-2xl p-6 sm:p-10 bg-[#0c0a17]/90 hairline transition-all duration-500 hover:border-gold/40 shadow-2xl overflow-hidden"
+          className="project-row-1 relative group rounded-2xl p-6 sm:p-10 bg-[#090e24]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
           style={
             {
               '--glow-x': '50%',
@@ -100,24 +113,24 @@ export const Projects: React.FC = () => {
             } as React.CSSProperties
           }
         >
-          {/* Subtle cursor-following glow border */}
+          {/* Subtle cursor-following glow border in Royal Blue */}
           <div
             className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               background:
-                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(201, 164, 92, 0.15), transparent 40%)',
+                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(59, 130, 246, 0.2), transparent 45%)',
             }}
           />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left: Project Narrative */}
             <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-gold tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-gold" />
-                <span>01 // Code Intelligence</span>
+              <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
+                <span>01 // Code Security & AST Intelligence</span>
               </div>
 
-              <h3 className="font-serif text-3xl sm:text-4xl text-ivory font-normal leading-tight">
+              <h3 className="font-serif text-3xl sm:text-4xl text-cream font-normal leading-tight">
                 Autonomous Cybersecurity Analyst AI
               </h3>
 
@@ -128,15 +141,15 @@ export const Projects: React.FC = () => {
 
               <div className="flex flex-col gap-2.5 text-xs text-muted/90 font-light">
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
+                  <span className="text-royal font-mono font-bold">•</span>
                   <span>Four-stage pipeline: ingest → detect → reason → report</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
+                  <span className="text-royal font-mono font-bold">•</span>
                   <span>LangChain and LangGraph orchestration with FastAPI backend</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
+                  <span className="text-royal font-mono font-bold">•</span>
                   <span>Iterative agent loop that autonomously validates and refines proposed fixes</span>
                 </div>
               </div>
@@ -146,7 +159,7 @@ export const Projects: React.FC = () => {
                 {['Python', 'FastAPI', 'LangChain', 'LangGraph', 'tree-sitter', 'LLMs'].map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded bg-[#161228] hairline text-[11px] font-mono text-gold-soft/90"
+                    className="px-2.5 py-1 rounded-lg bg-[#0e1638] hairline-royal text-[11px] font-mono text-royal-soft"
                   >
                     {tech}
                   </span>
@@ -159,7 +172,7 @@ export const Projects: React.FC = () => {
                 <a
                   href="#"
                   onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gold/15 hairline-gold text-gold hover:bg-gold hover:text-[#07060d] text-xs font-mono uppercase tracking-wider transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-royal/15 hairline-royal text-royal-soft hover:bg-royal hover:text-white text-xs font-mono uppercase tracking-wider transition-all duration-300"
                 >
                   <span>Repository (TODO)</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -167,10 +180,10 @@ export const Projects: React.FC = () => {
                 <a
                   href="#"
                   onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-muted hover:text-ivory transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-cream/70 hover:text-cream transition-colors"
                 >
                   <span>Demo View (TODO)</span>
-                  <ArrowUpRight className="w-3 h-3 text-gold/60" />
+                  <ArrowUpRight className="w-3 h-3 text-royal/60" />
                 </a>
               </div>
             </div>
@@ -178,13 +191,13 @@ export const Projects: React.FC = () => {
             {/* Right: Interactive 4-Stage Pipeline Diagram & Patch Diff */}
             <div className="lg:col-span-7 flex flex-col gap-4">
               {/* Pipeline Interactive Stages */}
-              <div className="p-4 sm:p-5 rounded-xl bg-[#120f22]/90 hairline flex flex-col gap-4">
+              <div className="p-4 sm:p-5 rounded-xl bg-[#0b102b]/90 hairline-royal flex flex-col gap-4">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-muted uppercase tracking-wider flex items-center gap-2">
-                    <Layers className="w-3.5 h-3.5 text-gold" />
+                  <span className="text-cream uppercase tracking-wider flex items-center gap-2 font-medium">
+                    <Layers className="w-3.5 h-3.5 text-royal-soft" />
                     Agentic Pipeline Graph
                   </span>
-                  <span className="text-[10px] text-gold px-2 py-0.5 rounded bg-gold/10 hairline-gold">
+                  <span className="text-[10px] text-royal-soft px-2.5 py-0.5 rounded-full bg-royal/20 hairline-royal">
                     State: Autonomous
                   </span>
                 </div>
@@ -202,13 +215,13 @@ export const Projects: React.FC = () => {
                         key={stage.id}
                         type="button"
                         onClick={() => setPipelineStep(stage.id)}
-                        className={`p-3 rounded-lg border text-left transition-all duration-200 ${
+                        className={`p-3 rounded-xl border text-left transition-all duration-200 ${
                           isActive
-                            ? 'bg-[#211a3d] border-gold text-ivory shadow-[0_0_15px_rgba(201,164,92,0.2)]'
-                            : 'bg-[#141026]/60 border-white/5 text-muted hover:border-white/20'
+                            ? 'bg-[#1e3a8a]/50 border-royal text-cream shadow-[0_0_15px_rgba(59,130,246,0.35)]'
+                            : 'bg-[#0f1738]/60 border-white/5 text-muted hover:border-royal/30'
                         }`}
                       >
-                        <div className="font-mono text-[10px] text-gold-soft mb-0.5">{stage.label}</div>
+                        <div className="font-mono text-[10px] text-royal-soft mb-0.5">{stage.label}</div>
                         <div className="text-xs font-medium">{stage.desc}</div>
                       </button>
                     );
@@ -217,13 +230,13 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Code-Diff "Patch Proposed" Visual Panel */}
-              <div className="rounded-xl bg-[#090812] hairline overflow-hidden font-mono text-[11px] sm:text-xs">
-                <div className="px-4 py-2.5 bg-[#141024] hairline-b flex items-center justify-between text-muted">
+              <div className="rounded-xl bg-[#060918] hairline-royal overflow-hidden font-mono text-[11px] sm:text-xs">
+                <div className="px-4 py-2.5 bg-[#0d1433] hairline-b flex items-center justify-between text-muted">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                    <span className="ml-2 text-gold-soft text-[10px]">app/security/validator.py (AST Diff)</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                    <span className="ml-2 text-cream text-[10px]">app/security/validator.py (AST Diff)</span>
                   </div>
                   <span className="text-[10px] text-green-400 flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3" /> Fix Verified
@@ -236,11 +249,11 @@ export const Projects: React.FC = () => {
                     <span>-</span>
                     <span>user_query = f"SELECT * FROM items WHERE id = &#123;raw_id&#125;"</span>
                   </div>
-                  <div className="bg-green-950/40 text-green-300 px-2 py-1 rounded flex items-center gap-2">
+                  <div className="bg-emerald-950/40 text-emerald-300 px-2 py-1 rounded flex items-center gap-2">
                     <span>+</span>
                     <span>query = select(Item).where(Item.id == bindparam("id", raw_id))</span>
                   </div>
-                  <div className="text-gold-soft/80 pt-2 text-[10px]">
+                  <div className="text-royal-soft/90 pt-2 text-[10px]">
                     ✔ LangGraph agent verified AST node rewrite against tree-sitter Python grammar.
                   </div>
                 </div>
@@ -250,11 +263,11 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* ================================================================ */}
-        {/* PROJECT 2: DevBoard AI */}
+        {/* PROJECT 2: Domain-Specific AI Research Assistant */}
         {/* ================================================================ */}
         <div
           ref={card2Ref}
-          className="project-row-2 relative group rounded-2xl p-6 sm:p-10 bg-[#0c0a17]/90 hairline transition-all duration-500 hover:border-gold/40 shadow-2xl overflow-hidden"
+          className="project-row-2 relative group rounded-2xl p-6 sm:p-10 bg-[#090e24]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
           style={
             {
               '--glow-x': '50%',
@@ -262,130 +275,135 @@ export const Projects: React.FC = () => {
             } as React.CSSProperties
           }
         >
-          {/* Subtle cursor-following glow border */}
+          {/* Subtle cursor-following glow border in Royal Blue */}
           <div
             className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               background:
-                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(201, 164, 92, 0.15), transparent 40%)',
+                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(59, 130, 246, 0.2), transparent 45%)',
             }}
           />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left: Stylised Dashboard Mock (HTML/CSS/SVG) */}
+            {/* Left: Interactive RAG Telemetry & Local Architecture Visual */}
             <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col gap-4">
-              <div className="rounded-xl bg-[#090812] hairline overflow-hidden shadow-xl">
-                {/* Dashboard Mock Window Bar */}
-                <div className="px-4 py-2.5 bg-[#141024] hairline-b flex items-center justify-between">
+              <div className="rounded-xl bg-[#060918] hairline-royal overflow-hidden shadow-xl">
+                {/* Visual Header */}
+                <div className="px-4 py-2.5 bg-[#0d1433] hairline-b flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-gold" />
-                    <span className="font-mono text-[11px] text-ivory font-medium">DevBoard AI Workspace</span>
+                    <div className="w-2 h-2 rounded-full bg-royal animate-ping" />
+                    <span className="font-mono text-[11px] text-cream font-medium">
+                      Local RAG Pipeline Telemetry
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-[#1a1432] p-1 rounded-md text-[10px] font-mono">
+                  <div className="flex items-center gap-1.5 bg-[#121c45] p-1 rounded-lg text-[10px] font-mono">
                     <button
                       type="button"
-                      onClick={() => setActiveTab('metrics')}
-                      className={`px-2 py-0.5 rounded ${
-                        activeTab === 'metrics' ? 'bg-gold text-[#07060d] font-semibold' : 'text-muted'
+                      onClick={() => setRagStep('hybrid')}
+                      className={`px-2.5 py-0.5 rounded ${
+                        ragStep === 'hybrid'
+                          ? 'bg-royal text-white font-semibold'
+                          : 'text-muted hover:text-cream'
                       }`}
                     >
-                      Telemetry
+                      Hybrid Search
                     </button>
                     <button
                       type="button"
-                      onClick={() => setActiveTab('assistant')}
-                      className={`px-2 py-0.5 rounded ${
-                        activeTab === 'assistant' ? 'bg-gold text-[#07060d] font-semibold' : 'text-muted'
+                      onClick={() => setRagStep('llm')}
+                      className={`px-2.5 py-0.5 rounded ${
+                        ragStep === 'llm'
+                          ? 'bg-royal text-white font-semibold'
+                          : 'text-muted hover:text-cream'
                       }`}
                     >
-                      Assistant
+                      DeepSeek-R1
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRagStep('eval')}
+                      className={`px-2.5 py-0.5 rounded ${
+                        ragStep === 'eval'
+                          ? 'bg-royal text-white font-semibold'
+                          : 'text-muted hover:text-cream'
+                      }`}
+                    >
+                      RAGAS Eval
                     </button>
                   </div>
                 </div>
 
-                {/* Dashboard Viewport */}
-                {activeTab === 'metrics' ? (
-                  <div className="p-5 flex flex-col gap-4">
-                    {/* Activity Stat Cards */}
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="p-3 rounded-lg bg-[#141126] hairline">
-                        <span className="font-mono text-[10px] text-muted block mb-1">Velocity</span>
-                        <span className="font-mono text-base font-semibold text-ivory">94.2%</span>
+                {/* Dynamic Content Panel */}
+                {ragStep === 'hybrid' && (
+                  <div className="p-5 flex flex-col gap-4 font-mono text-xs">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                        <span className="text-[10px] text-royal-soft block mb-1">Dense Retrieval</span>
+                        <div className="text-cream font-semibold">FAISS Indexing</div>
+                        <span className="text-[10px] text-muted">Cosine Embedding Search</span>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#141126] hairline">
-                        <span className="font-mono text-[10px] text-muted block mb-1">Active Sprints</span>
-                        <span className="font-mono text-base font-semibold text-gold">4 Active</span>
-                      </div>
-                      <div className="p-3 rounded-lg bg-[#141126] hairline">
-                        <span className="font-mono text-[10px] text-muted block mb-1">AI Copilot</span>
-                        <span className="font-mono text-base font-semibold text-green-400">Online</span>
+                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                        <span className="text-[10px] text-royal-soft block mb-1">Sparse Retrieval</span>
+                        <div className="text-cream font-semibold">BM25 Lexical</div>
+                        <span className="text-[10px] text-muted">Keyword Token Freq</span>
                       </div>
                     </div>
 
-                    {/* SVG Activity Visualization Waveform */}
-                    <div className="p-4 rounded-lg bg-[#141126] hairline flex flex-col gap-2">
-                      <div className="flex justify-between items-center font-mono text-[10px] text-muted">
-                        <span>Sprint Velocity & Commit Density (Anime.js Visualizer)</span>
-                        <span className="text-gold">Peak: +42 commits/wk</span>
+                    <div className="p-3.5 rounded-lg bg-[#0b1028] hairline flex flex-col gap-2">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="text-cream font-semibold flex items-center gap-1.5">
+                          <Filter className="w-3.5 h-3.5 text-royal-soft" />
+                          Reciprocal Rank Fusion (RRF)
+                        </span>
+                        <span className="text-emerald-400 text-[10px]">Rank Boost: +34%</span>
                       </div>
-                      <svg viewBox="0 0 400 90" className="w-full h-20 overflow-visible">
-                        <defs>
-                          <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#c9a45c" stopOpacity="0.4" />
-                            <stop offset="100%" stopColor="#c9a45c" stopOpacity="0.0" />
-                          </linearGradient>
-                        </defs>
-                        <path
-                          d="M0,70 Q40,30 80,50 T160,20 T240,45 T320,15 T400,35 L400,90 L0,90 Z"
-                          fill="url(#goldGrad)"
-                        />
-                        <path
-                          d="M0,70 Q40,30 80,50 T160,20 T240,45 T320,15 T400,35"
-                          fill="none"
-                          stroke="#c9a45c"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                        />
-                        <circle cx="320" cy="15" r="4" fill="#f4efe4" stroke="#c9a45c" strokeWidth="2" />
-                      </svg>
-                    </div>
-
-                    {/* Active Project Tracking List */}
-                    <div className="flex flex-col gap-2">
-                      <div className="font-mono text-[10px] text-muted tracking-wider uppercase">
-                        Tracked Repositories
-                      </div>
-                      <div className="flex items-center justify-between p-2.5 rounded bg-[#16122a] hairline text-xs font-mono">
-                        <div className="flex items-center gap-2">
-                          <GitCommit className="w-3.5 h-3.5 text-gold" />
-                          <span className="text-ivory">core-security-engine</span>
-                        </div>
-                        <span className="text-green-400 text-[10px]">CI Passed</span>
-                      </div>
-                      <div className="flex items-center justify-between p-2.5 rounded bg-[#16122a] hairline text-xs font-mono">
-                        <div className="flex items-center gap-2">
-                          <GitCommit className="w-3.5 h-3.5 text-gold" />
-                          <span className="text-ivory">agent-dashboard-ui</span>
-                        </div>
-                        <span className="text-gold text-[10px]">Staging</span>
-                      </div>
+                      <p className="text-[11px] text-muted font-sans font-light leading-relaxed">
+                        Combines top-k dense and sparse scores with HyDE query rewriting and cross-encoder reranking
+                        to maximize precision over complex tables and scientific figures parsed via Docling.
+                      </p>
                     </div>
                   </div>
-                ) : (
-                  /* Assistant Conversation Panel */
+                )}
+
+                {ragStep === 'llm' && (
                   <div className="p-5 flex flex-col gap-3 font-mono text-xs">
-                    <div className="p-3 rounded-lg bg-[#151228] hairline text-muted">
-                      <span className="text-gold block mb-1 text-[10px]">Developer Query</span>
-                      "Summarize telemetry anomalies in sprint 12 and suggest load balancing adjustments."
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#1c1638] hairline-gold text-ivory flex flex-col gap-2">
-                      <span className="text-gold-soft flex items-center gap-1.5 text-[10px]">
-                        <Sparkles className="w-3 h-3 text-gold" /> DevBoard Assistant
+                    <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Brain className="w-4 h-4 text-royal-soft" />
+                        <span className="text-cream font-medium">DeepSeek-R1 (8B) Local</span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded bg-royal/20 text-royal-soft text-[10px]">
+                        Ollama 4-bit Quantized
                       </span>
-                      <p className="text-[11px] leading-relaxed text-muted">
-                        Analysis complete: API latency spiked by 18% during peak webhook ingestion.
-                        Recommended action: migrate async jobs to FastAPI background tasks or Celery queue.
-                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-[#0b1028] hairline text-muted leading-relaxed text-[11px]">
+                      <span className="text-cream block font-sans font-medium mb-1">
+                        Reasoning over Scientific Corpus:
+                      </span>
+                      "Based on the parsed Docling tables in Section 4.2, the neural attention weights shift dynamically
+                      under cross-modal tokenization, reducing sparse query variance by 28.4%."
+                    </div>
+                  </div>
+                )}
+
+                {ragStep === 'eval' && (
+                  <div className="p-5 flex flex-col gap-3 font-mono text-xs">
+                    <div className="text-[11px] text-cream font-medium flex items-center gap-2 mb-1">
+                      <Sparkles className="w-3.5 h-3.5 text-royal-soft" />
+                      RAGAS-Based Quantitative Evaluation
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                        <span className="text-[10px] text-muted block mb-0.5">Answer Faithfulness</span>
+                        <div className="text-xl font-bold text-emerald-400">0.94 / 1.0</div>
+                        <span className="text-[9px] text-muted/80">Hallucination Prevention</span>
+                      </div>
+                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                        <span className="text-[10px] text-muted block mb-0.5">Retrieval Relevance</span>
+                        <div className="text-xl font-bold text-royal-soft">0.96 / 1.0</div>
+                        <span className="text-[9px] text-muted/80">Context Precision</span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -394,41 +412,54 @@ export const Projects: React.FC = () => {
 
             {/* Right: Project Narrative */}
             <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col gap-6">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-gold tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-gold" />
-                <span>02 // Developer Productivity</span>
+              <div className="flex items-center gap-2 font-mono text-[11px] text-royal-soft tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-royal animate-pulse" />
+                <span>02 // Local RAG & Scientific NLP</span>
               </div>
 
-              <h3 className="font-serif text-3xl sm:text-4xl text-ivory font-normal leading-tight">
-                DevBoard AI
+              <h3 className="font-serif text-3xl sm:text-4xl text-cream font-normal leading-tight">
+                Domain-Specific AI Research Assistant
               </h3>
 
               <p className="text-muted text-sm sm:text-base font-light leading-relaxed">
-                AI-enabled developer productivity dashboard with automated project tracking, animated activity
-                visualizations, and an integrated assistant copilot.
+                End-to-end local RAG pipeline enabling conversational querying over private scientific
+                research papers using locally deployed, quantized LLMs.
               </p>
 
               <div className="flex flex-col gap-2.5 text-xs text-muted/90 font-light">
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
-                  <span>Modular component architecture built with Next.js, React, and Tailwind CSS</span>
+                  <span className="text-royal font-mono font-bold">•</span>
+                  <span>Intelligent PDF ingestion using Docling for structured layout and table parsing</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
-                  <span>Kinetic visualizers driven by Anime.js for smooth data render cycles</span>
+                  <span className="text-royal font-mono font-bold">•</span>
+                  <span>Hybrid retrieval combining FAISS dense and BM25 sparse search via RRF</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gold font-mono">•</span>
-                  <span>Interactive assistant panel for query answering and workflow telemetry</span>
+                  <span className="text-royal font-mono font-bold">•</span>
+                  <span>HyDE query rewriting, cross-encoder reranking, and Ollama 4-bit DeepSeek-R1</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-royal font-mono font-bold">•</span>
+                  <span>RAGAS evaluation suite for answer faithfulness and retrieval quality</span>
                 </div>
               </div>
 
               {/* Stack Badges */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {['Next.js', 'Tailwind CSS', 'Anime.js', 'React'].map((tech) => (
+                {[
+                  'Python',
+                  'Docling',
+                  'FAISS',
+                  'BM25',
+                  'DeepSeek-R1 (8B)',
+                  'Ollama',
+                  'LangChain',
+                  'RAGAS',
+                ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded bg-[#161228] hairline text-[11px] font-mono text-gold-soft/90"
+                    className="px-2.5 py-1 rounded-lg bg-[#0e1638] hairline-royal text-[11px] font-mono text-royal-soft"
                   >
                     {tech}
                   </span>
@@ -441,7 +472,7 @@ export const Projects: React.FC = () => {
                 <a
                   href="#"
                   onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gold/15 hairline-gold text-gold hover:bg-gold hover:text-[#07060d] text-xs font-mono uppercase tracking-wider transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-royal/15 hairline-royal text-royal-soft hover:bg-royal hover:text-white text-xs font-mono uppercase tracking-wider transition-all duration-300"
                 >
                   <span>Repository (TODO)</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -449,10 +480,10 @@ export const Projects: React.FC = () => {
                 <a
                   href="#"
                   onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-muted hover:text-ivory transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-cream/70 hover:text-cream transition-colors"
                 >
-                  <span>Preview (TODO)</span>
-                  <ArrowUpRight className="w-3 h-3 text-gold/60" />
+                  <span>Architecture Docs (TODO)</span>
+                  <ArrowUpRight className="w-3 h-3 text-royal/60" />
                 </a>
               </div>
             </div>

@@ -1,10 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { AnimatedTopDock } from '../shaders/animated-top-dock/AnimatedTopDock';
 import gsap from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
+
+// Declare window extension for Lenis
+declare global {
+  interface Window {
+    __lenis?: any;
+  }
+}
 
 const SECTION_TARGETS = [
   { id: 'hero', label: 'Home' },
@@ -21,99 +27,116 @@ export const NavigationDock: React.FC = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Find all dock links inside AnimatedTopDock
-    const nav = container.querySelector('.animated-top-dock__nav');
+    const nav = container.querySelector<HTMLElement>('.animated-top-dock__nav');
     if (!nav) return;
 
-    const logoBtn = nav.querySelector<HTMLButtonElement>('.animated-top-dock__logo');
-    const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
-
-    // Update labels in DOM to exact portfolio navigation items: Home, Projects, Experience, Skills, Contact
-    links.forEach((link, idx) => {
-      if (SECTION_TARGETS[idx]) {
-        const textSpan = link.querySelector('span:not(.animated-top-dock__icon)');
-        if (textSpan) {
-          textSpan.textContent = SECTION_TARGETS[idx].label;
+    const applyLabels = () => {
+      const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
+      links.forEach((link, idx) => {
+        if (SECTION_TARGETS[idx]) {
+          const textSpan = link.querySelector('span:not(.animated-top-dock__icon)');
+          if (textSpan && textSpan.textContent !== SECTION_TARGETS[idx].label) {
+            textSpan.textContent = SECTION_TARGETS[idx].label;
+          }
+          link.setAttribute('aria-label', SECTION_TARGETS[idx].label);
         }
-        link.setAttribute('aria-label', SECTION_TARGETS[idx].label);
-      }
+      });
+    };
+
+    applyLabels();
+
+    // Use MutationObserver to ensure labels stay consistent even on internal ThreeUI state transitions
+    const observer = new MutationObserver(() => {
+      applyLabels();
     });
+    observer.observe(nav, { childList: true, subtree: true, characterData: true });
 
     let isProgrammaticScroll = false;
+    let scrollTimeout = 0;
 
-    function updateActiveItem(activeIdx: number) {
-      if (isProgrammaticScroll) return;
+    const updateActiveItem = (activeIdx: number) => {
+      const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
       links.forEach((link, idx) => {
         const isCurrent = idx === activeIdx;
         link.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
       });
-    }
+    };
 
-    // Smooth scroll handler using GSAP ScrollToPlugin
-    function scrollToTarget(targetId: string) {
+    const scrollToTarget = (targetId: string) => {
       const el = document.getElementById(targetId);
       if (!el) return;
 
       isProgrammaticScroll = true;
-      gsap.to(window, {
-        duration: 1.1,
-        scrollTo: { y: el, offsetY: 70 },
-        ease: 'power3.inOut',
-        onComplete: () => {
-          setTimeout(() => {
-            isProgrammaticScroll = false;
-          }, 100);
-        },
-      });
-    }
+      clearTimeout(scrollTimeout);
 
-    // Click handler for logo button (Goes to Home/Hero)
-    const handleLogoClick = (e: MouseEvent) => {
-      e.preventDefault();
-      scrollToTarget('hero');
+      // If Lenis smooth scroll engine is available, use its native smooth scroll
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, {
+          offset: -70,
+          duration: 1.1,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      scrollTimeout = window.setTimeout(() => {
+        isProgrammaticScroll = false;
+      }, 1200);
     };
 
-    if (logoBtn) {
-      logoBtn.addEventListener('click', handleLogoClick);
-    }
-
-    // Click handler for dock items
-    const linkHandlers: { link: HTMLButtonElement; fn: (e: MouseEvent) => void }[] = [];
-
-    links.forEach((link, idx) => {
-      const target = SECTION_TARGETS[idx];
+    // Event delegation on nav container ensures 100% reliable clicks on every child element
+    const handleNavClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-dock-item]');
       if (!target) return;
 
-      const handler = (e: MouseEvent) => {
-        e.preventDefault();
-        scrollToTarget(target.id);
-      };
+      e.preventDefault();
+      e.stopPropagation();
 
-      link.addEventListener('click', handler);
-      linkHandlers.push({ link, fn: handler });
-    });
+      // Home logo click
+      if (target.classList.contains('animated-top-dock__logo')) {
+        updateActiveItem(0);
+        scrollToTarget('hero');
+        return;
+      }
 
-    // Setup ScrollTrigger for each section to update active highlight in dock
+      // Link clicks
+      const links = Array.from(nav.querySelectorAll<HTMLButtonElement>('.animated-top-dock__link'));
+      const idx = links.indexOf(target);
+      if (idx !== -1 && SECTION_TARGETS[idx]) {
+        updateActiveItem(idx);
+        scrollToTarget(SECTION_TARGETS[idx].id);
+      }
+    };
+
+    nav.addEventListener('click', handleNavClick, { capture: true });
+
+    // ScrollTrigger to highlight active item as user scrolls down the page
     const triggers: ScrollTrigger[] = [];
-
     SECTION_TARGETS.forEach((target, idx) => {
       const sectionEl = document.getElementById(target.id);
       if (!sectionEl) return;
 
       const st = ScrollTrigger.create({
         trigger: sectionEl,
-        start: 'top 45%',
-        end: 'bottom 45%',
-        onEnter: () => updateActiveItem(idx),
-        onEnterBack: () => updateActiveItem(idx),
+        start: 'top 50%',
+        end: 'bottom 50%',
+        onEnter: () => {
+          if (!isProgrammaticScroll) updateActiveItem(idx);
+        },
+        onEnterBack: () => {
+          if (!isProgrammaticScroll) updateActiveItem(idx);
+        },
       });
       triggers.push(st);
     });
 
     return () => {
-      if (logoBtn) logoBtn.removeEventListener('click', handleLogoClick);
-      linkHandlers.forEach(({ link, fn }) => link.removeEventListener('click', fn));
+      observer.disconnect();
+      nav.removeEventListener('click', handleNavClick, { capture: true });
       triggers.forEach((t) => t.kill());
+      clearTimeout(scrollTimeout);
     };
   }, []);
 

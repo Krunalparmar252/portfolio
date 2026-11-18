@@ -41,15 +41,15 @@ export const CustomCursor: React.FC = () => {
 
     // Magnetic interaction on buttons, links, dock items
     const interactiveElements = document.querySelectorAll<HTMLElement>('a, button, [data-dock-item]');
-    
+
     const handleMouseEnter = () => {
-      gsap.to(ring, { scale: 1.8, borderColor: 'rgba(201, 164, 92, 0.8)', duration: 0.25 });
-      gsap.to(cursor, { scale: 0.5, backgroundColor: '#f4efe4', duration: 0.25 });
+      gsap.to(ring, { scale: 1.8, borderColor: 'rgba(96, 165, 250, 0.85)', duration: 0.25 });
+      gsap.to(cursor, { scale: 0.5, backgroundColor: '#f8f7f4', duration: 0.25 });
     };
 
     const handleMouseLeave = () => {
-      gsap.to(ring, { scale: 1, borderColor: 'rgba(201, 164, 92, 0.35)', duration: 0.25 });
-      gsap.to(cursor, { scale: 1, backgroundColor: '#c9a45c', duration: 0.25 });
+      gsap.to(ring, { scale: 1, borderColor: 'rgba(59, 130, 246, 0.38)', duration: 0.25 });
+      gsap.to(cursor, { scale: 1, backgroundColor: '#3b82f6', duration: 0.25 });
     };
 
     interactiveElements.forEach((el) => {
@@ -69,16 +69,16 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Tiny gold dot */}
+      {/* Tiny royal blue dot */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-[#c9a45c] pointer-events-none z-[999] opacity-0 transition-opacity duration-300 hidden md:block"
+        className="fixed top-0 left-0 w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-[#3b82f6] pointer-events-none z-[999] opacity-0 transition-opacity duration-300 hidden md:block"
         aria-hidden="true"
       />
       {/* Outer subtle ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 rounded-full border border-[#c9a45c]/35 pointer-events-none z-[998] opacity-0 transition-opacity duration-300 hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 rounded-full border border-[#3b82f6]/38 pointer-events-none z-[998] opacity-0 transition-opacity duration-300 hidden md:block"
         aria-hidden="true"
       />
     </>

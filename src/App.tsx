@@ -30,6 +30,8 @@ export const App: React.FC = () => {
       smoothWheel: true,
     });
 
+    window.__lenis = lenis;
+
     lenis.on('scroll', ScrollTrigger.update);
 
     const tickerCb = (time: number) => {
@@ -42,11 +44,12 @@ export const App: React.FC = () => {
     return () => {
       gsap.ticker.remove(tickerCb);
       lenis.destroy();
+      window.__lenis = undefined;
     };
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#07060d] text-[#f4efe4] selection:bg-[#c9a45c]/30 selection:text-[#f4efe4]">
+    <div className="relative min-h-screen bg-[#050714] text-[#f8f7f4] selection:bg-[#3b82f6]/30 selection:text-[#f8f7f4]">
       {/* Decorative Overlays */}
       <div className="grain-overlay" aria-hidden="true" />
       <div className="ambient-vignette" aria-hidden="true" />

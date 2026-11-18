@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Briefcase, Building2, Calendar, CheckCircle2, MapPin } from 'lucide-react';
+import { Building2, Calendar, CheckCircle2, MapPin } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,22 +11,22 @@ const EXPERIENCES = [
     company: 'BrainyBeam Info-Tech Pvt. Ltd.',
     location: 'Ahmedabad, Gujarat',
     period: 'May – Jun 2026 (15-Day Industry Track)',
-    tag: 'Full Stack Workflows',
+    tag: 'Full-Stack Workflows',
     points: [
-      'Practical exposure to full-stack application structure and development workflows through industry-guided work.',
+      'Gained practical exposure to full-stack application structure and development workflows through industry-guided work.',
       'Explored backend services integration, modular frontend component design, and automated build pipelines.',
     ],
     skills: ['Full-Stack Systems', 'API Architecture', 'Component Lifecycles', 'Git'],
   },
   {
     role: 'Software Development Intern',
-    company: 'Amul (GCMMF)',
+    company: 'Amul',
     location: 'Anand, Gujarat',
     period: 'Jun 2025 (15-Day Industry Track)',
     tag: 'Enterprise Portal',
     points: [
       'Built a React.js and Firebase customer-care platform for feedback and issue tracking across customers, parlour users and administrators.',
-      'Implemented authentication, role-based access control (RBAC), real-time messaging and notifications using Vite and React Context API.',
+      'Implemented authentication, role-based access, messaging and notifications using Vite and React Context API.',
     ],
     skills: ['React.js', 'Firebase', 'Vite', 'React Context API', 'RBAC', 'Realtime DB'],
   },
@@ -65,42 +65,42 @@ export const Experience: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-16 sm:mb-20">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-gold tracking-widest uppercase">03</span>
-          <span className="w-8 h-[1px] bg-gold/30" />
-          <span className="font-mono text-xs tracking-widest text-muted uppercase">Industry Experience</span>
+          <span className="font-mono text-xs text-royal tracking-widest uppercase">03</span>
+          <span className="w-8 h-[1px] bg-royal/40" />
+          <span className="font-mono text-xs tracking-widest text-muted uppercase">Internship Experience</span>
         </div>
-        <span className="font-mono text-[11px] text-muted uppercase">Practicum // Roles</span>
+        <span className="font-mono text-[11px] text-cream/70 uppercase">Practicum // Industry</span>
       </div>
 
       <div className="flex flex-col gap-8 max-w-4xl mx-auto">
         {EXPERIENCES.map((exp, idx) => (
           <div
             key={idx}
-            className="exp-card relative rounded-2xl p-6 sm:p-8 bg-[#0d0b1a] hairline transition-all duration-300 hover:border-gold/30 hover:bg-[#120f24]"
+            className="exp-card relative rounded-2xl p-6 sm:p-8 bg-[#090e24]/90 hairline-royal royal-card-transition"
           >
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
               <div>
-                <span className="font-mono text-[11px] text-gold tracking-wider uppercase block mb-1">
+                <span className="font-mono text-[11px] text-royal-soft tracking-wider uppercase block mb-1">
                   {exp.tag}
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-ivory">
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-cream">
                   {exp.role}
                 </h3>
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted font-sans mt-2">
-                  <span className="flex items-center gap-1.5 text-ivory/90 font-medium">
-                    <Building2 className="w-3.5 h-3.5 text-gold" />
+                  <span className="flex items-center gap-1.5 text-cream font-medium">
+                    <Building2 className="w-3.5 h-3.5 text-royal-soft" />
                     {exp.company}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-gold/70" />
+                    <MapPin className="w-3.5 h-3.5 text-royal/80" />
                     {exp.location}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 font-mono text-xs text-gold-soft px-3 py-1.5 rounded-full bg-[#181330] hairline-gold whitespace-nowrap self-start">
-                <Calendar className="w-3 h-3 text-gold" />
+              <div className="flex items-center gap-1.5 font-mono text-xs text-royal-soft px-3 py-1.5 rounded-full bg-[#0e163a] hairline-royal whitespace-nowrap self-start">
+                <Calendar className="w-3 h-3 text-royal-soft" />
                 <span>{exp.period}</span>
               </div>
             </div>
@@ -108,17 +108,17 @@ export const Experience: React.FC = () => {
             <ul className="flex flex-col gap-2.5 my-5 text-sm text-muted font-light leading-relaxed">
               {exp.points.map((pt, pIdx) => (
                 <li key={pIdx} className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold/70 mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-royal-soft mt-2 shrink-0" />
                   <span>{pt}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="flex flex-wrap gap-2 pt-2 hairline-t">
+            <div className="flex flex-wrap gap-2 pt-3 hairline-t">
               {exp.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 rounded bg-[#17122c] hairline text-[11px] font-mono text-gold-soft"
+                  className="px-2.5 py-1 rounded-lg bg-[#0e163a] hairline-royal text-[11px] font-mono text-cream"
                 >
                   {skill}
                 </span>

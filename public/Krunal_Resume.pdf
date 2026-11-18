@@ -9,7 +9,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 2239 >>
+<< /Length 2471 >>
 stream
 BT
 /F1 20 Tf
@@ -17,9 +17,9 @@ BT
 (KRUNAL PARMAR) Tj
 ET
 BT
-/F2 10 Tf
+/F2 9.5 Tf
 50 722 Td
-(Nadiad, Gujarat, India | krunalparmar090306@gmail.com | github.com/Krunalparmar252) Tj
+(Nadiad, Gujarat | +91 87993 01121 | krunalparmar090306@gmail.com | linkedin.com/in/krunal-parmar-7287682b5) Tj
 ET
 BT
 /F1 12 Tf
@@ -27,14 +27,14 @@ BT
 (EDUCATION) Tj
 ET
 BT
-/F2 10 Tf
+/F2 9.5 Tf
 50 680 Td
-(B.Tech in Computer Engineering - Birla Vishwakarma Mahavidyalaya (2023 - 2027) | CGPA: 7.10/10) Tj
+(B.Tech in Computer Engineering - Birla Vishwakarma Mahavidyalaya (2023 - 2027) | CGPA: 7.15/10) Tj
 ET
 BT
 /F1 12 Tf
 50 655 Td
-(PROJECTS) Tj
+(SELECTED PROJECTS) Tj
 ET
 BT
 /F1 10 Tf
@@ -42,83 +42,85 @@ BT
 (Autonomous Cybersecurity Analyst AI) Tj
 ET
 BT
-/F2 9 Tf
+/F2 8.5 Tf
 50 628 Td
 (- Agentic code-security system combining tree-sitter/AST analysis with LLM reasoning.) Tj
-0 -12 Td
-(- Four-stage pipeline: ingest -> detect -> reason -> report using LangChain & LangGraph.) Tj
-0 -12 Td
-(- Stack: Python, FastAPI, LangChain, LangGraph, tree-sitter, LLMs.) Tj
+0 -11 Td
+(- Four-stage pipeline: ingest -> detect -> reason -> report with LangChain, LangGraph & FastAPI.) Tj
 ET
 BT
 /F1 10 Tf
-50 588 Td
-(DevBoard AI) Tj
+50 595 Td
+(Domain-Specific AI Research Assistant) Tj
 ET
 BT
-/F2 9 Tf
-50 576 Td
-(- AI-enabled developer productivity dashboard with project tracking & activity visualizations.) Tj
-0 -12 Td
-(- Built with Next.js, Tailwind CSS, and Anime.js with reusable component architecture.) Tj
+/F2 8.5 Tf
+50 583 Td
+(- Local RAG pipeline for conversational querying over scientific papers with local LLMs.) Tj
+0 -11 Td
+(- Intelligent PDF ingestion with Docling for structured layout & table semantic chunking.) Tj
+0 -11 Td
+(- Hybrid retrieval: FAISS dense + BM25 sparse search using RRF, HyDE, and cross-encoders.) Tj
+0 -11 Td
+(- 4-bit DeepSeek-R1 (8B) via Ollama and RAGAS-based evaluation suite.) Tj
 ET
 BT
 /F1 12 Tf
-50 540 Td
-(EXPERIENCE) Tj
+50 520 Td
+(INTERNSHIP EXPERIENCE) Tj
 ET
 BT
 /F1 10 Tf
-50 525 Td
+50 505 Td
+(Full Stack Development Intern - BrainyBeam Info-Tech Pvt. Ltd. (May-Jun 2026)) Tj
+ET
+BT
+/F2 8.5 Tf
+50 493 Td
+(- Gained practical exposure to full-stack application structure and development workflows.) Tj
+ET
+BT
+/F1 10 Tf
+50 470 Td
 (Software Development Intern - Amul (Jun 2025)) Tj
 ET
 BT
-/F2 9 Tf
-50 513 Td
+/F2 8.5 Tf
+50 458 Td
 (- Built React.js and Firebase customer-care platform for feedback and issue tracking.) Tj
-0 -12 Td
-(- Implemented authentication, role-based access, messaging and notifications.) Tj
-ET
-BT
-/F1 10 Tf
-50 480 Td
-(Full Stack Development Intern - BrainyBeam Info-Tech (May-Jun 2026)) Tj
-ET
-BT
-/F2 9 Tf
-50 468 Td
-(- Practical exposure to full-stack application structure and development workflows.) Tj
+0 -11 Td
+(- Implemented authentication, role-based access, messaging and notifications with Vite & React.) Tj
 ET
 BT
 /F1 12 Tf
-50 440 Td
+50 425 Td
 (TECHNICAL SKILLS) Tj
 ET
 BT
-/F2 9 Tf
-50 426 Td
+/F2 8.5 Tf
+50 411 Td
 (Languages: Python, C++, Java, C, SQL) Tj
-0 -13 Td
+0 -11 Td
 (AI & Data: NumPy, pandas, scikit-learn, LLM applications, LangChain, LangGraph) Tj
-0 -13 Td
+0 -11 Td
 (Backend: FastAPI, Firebase, tree-sitter/AST analysis, Git, GitHub) Tj
-0 -13 Td
+0 -11 Td
 (Frontend: React.js, Next.js, Tailwind CSS, Vite, Anime.js) Tj
 ET
 BT
 /F1 12 Tf
-50 360 Td
+50 345 Td
 (CERTIFICATIONS & LEADERSHIP) Tj
 ET
 BT
-/F2 9 Tf
-50 346 Td
+/F2 8.5 Tf
+50 331 Td
 (- NPTEL: Introduction to Large Language Models (Elite)) Tj
-0 -13 Td
+0 -11 Td
 (- NPTEL: Deep Learning, IIT Ropar (Elite)) Tj
-0 -13 Td
-(- Deep Learning Summer School Certificate of Completion) Tj
-0 -13 Td
+0 -11 Td
+(- Deep Learning Summer School: Certificate of completion) Tj
+0 -11 Td
 (- IEEE BVM Student Branch Volunteer (Aug 2024 - 2025)) Tj
 ET
 endstream
@@ -136,10 +138,10 @@ xref
 0000000058 00000 n 
 0000000115 00000 n 
 0000000251 00000 n 
-0000002542 00000 n 
-0000002617 00000 n 
+0000002774 00000 n 
+0000002849 00000 n 
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-2687
+2919
 %%EOF

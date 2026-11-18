@@ -8,19 +8,25 @@ export default {
     extend: {
       colors: {
         bg: {
-          DEFAULT: '#07060d',
-          raise: '#0e0c1a',
+          DEFAULT: '#050714',
+          raise: '#0c1126',
         },
-        surface: 'rgba(20, 17, 36, 0.45)',
-        line: 'rgba(255, 255, 255, 0.08)',
-        ivory: '#f4efe4',
-        muted: '#a59fb8',
-        gold: {
-          DEFAULT: '#c9a45c',
-          soft: '#e6cf9a',
-          dark: '#8b6f33',
+        surface: 'rgba(14, 20, 44, 0.55)',
+        line: 'rgba(255, 255, 255, 0.09)',
+        ivory: '#f8f7f4',
+        cream: {
+          DEFAULT: '#f6efe2',
+          soft: '#faecd6',
+          muted: '#dcd1c0',
         },
-        royal: '#3b2a8c',
+        muted: '#94a3b8',
+        royal: {
+          DEFAULT: '#3b82f6',
+          deep: '#1d4ed8',
+          vivid: '#2563eb',
+          soft: '#60a5fa',
+          glow: 'rgba(59, 130, 246, 0.35)',
+        },
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],

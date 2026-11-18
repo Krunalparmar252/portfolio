@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, BookOpen, Code2, Cpu, ShieldCheck } from 'lucide-react';
+import { Code2, Cpu, Database, ShieldCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,8 +38,8 @@ export const About: React.FC = () => {
       {/* Section mono header */}
       <div className="about-reveal flex items-center justify-between mb-16 sm:mb-20">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-gold tracking-widest uppercase">01</span>
-          <span className="w-8 h-[1px] bg-gold/30" />
+          <span className="font-mono text-xs text-royal tracking-widest uppercase">01</span>
+          <span className="w-8 h-[1px] bg-royal/40" />
           <span className="font-mono text-xs tracking-widest text-muted uppercase">About & Philosophy</span>
         </div>
         <span className="font-mono text-[11px] text-muted hidden sm:inline-block">ARCH // DISCIPLINE</span>
@@ -49,71 +49,72 @@ export const About: React.FC = () => {
         {/* Left Column: Large Editorial Statement */}
         <div className="lg:col-span-7 flex flex-col gap-6">
           <h2 className="about-reveal font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-[1.15] text-ivory">
-            Bridging algorithmic rigor with <span className="italic text-gold-soft">applied machine intelligence</span> and robust architecture.
+            Bridging algorithmic rigor with <span className="italic text-royal-soft">applied machine intelligence</span> and robust architecture.
           </h2>
 
           <div className="about-reveal text-muted text-base sm:text-lg font-light leading-relaxed flex flex-col gap-4">
             <p>
-              I am a final-year Computer Engineering undergraduate at Birla Vishwakarma Mahavidyalaya,
-              focused on the intersection of LLM reasoning, code analysis, and production web systems.
+              I am a final-year Computer Engineering undergraduate at Birla Vishwakarma Mahavidyalaya (CGPA: 7.15/10),
+              focused on applied AI, agentic systems, and production web systems.
             </p>
             <p>
-              Rather than surface-level wrappers, my focus centers on agentic loops with graph-based orchestration,
-              AST-aware parsing via Tree-sitter, and performant user interfaces that elevate technical workflows.
+              I specialize in building deterministic verification loops for LLMs—combining tree-sitter AST parsing with
+              LangGraph/LangChain multi-stage agents, and deploying local RAG engines featuring dense/sparse hybrid search
+              (FAISS + BM25) and quantized models.
             </p>
           </div>
 
           <div className="about-reveal grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
-            <div className="p-4 rounded-lg bg-surface hairline">
-              <span className="font-mono text-[10px] text-gold uppercase tracking-wider block mb-1">Focus</span>
-              <span className="font-sans text-sm font-medium text-ivory">Applied AI & Systems</span>
+            <div className="p-4 rounded-xl bg-surface hairline-cream royal-card-transition">
+              <span className="font-mono text-[10px] text-royal uppercase tracking-wider block mb-1">Focus</span>
+              <span className="font-sans text-sm font-medium text-cream">Applied AI & Systems</span>
             </div>
-            <div className="p-4 rounded-lg bg-surface hairline">
-              <span className="font-mono text-[10px] text-gold uppercase tracking-wider block mb-1">Institution</span>
-              <span className="font-sans text-sm font-medium text-ivory">BVM Engineering</span>
+            <div className="p-4 rounded-xl bg-surface hairline-cream royal-card-transition">
+              <span className="font-mono text-[10px] text-royal uppercase tracking-wider block mb-1">Institution</span>
+              <span className="font-sans text-sm font-medium text-cream">BVM Engineering</span>
             </div>
-            <div className="p-4 rounded-lg bg-surface hairline col-span-2 sm:col-span-1">
-              <span className="font-mono text-[10px] text-gold uppercase tracking-wider block mb-1">Degree Line</span>
-              <span className="font-sans text-sm font-medium text-ivory">B.Tech CE · 2027</span>
+            <div className="p-4 rounded-xl bg-surface hairline-cream royal-card-transition col-span-2 sm:col-span-1">
+              <span className="font-mono text-[10px] text-royal uppercase tracking-wider block mb-1">Academics</span>
+              <span className="font-sans text-sm font-medium text-cream">CGPA 7.15 / 10</span>
             </div>
           </div>
         </div>
 
         {/* Right Column: Key Tenets / Architectural Pillars */}
         <div className="lg:col-span-5 flex flex-col gap-4">
-          <div className="about-reveal p-6 rounded-xl bg-surface hairline hover:border-gold/30 transition-colors duration-300">
+          <div className="about-reveal p-6 rounded-xl bg-surface hairline-royal royal-card-transition">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-[#3b2a8c]/30 hairline-gold flex items-center justify-center text-gold">
+              <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-base font-medium text-ivory">Deterministic Verification</h3>
+              <h3 className="font-sans text-base font-medium text-cream">Deterministic AST Verification</h3>
             </div>
             <p className="text-sm text-muted leading-relaxed font-light">
-              Coupling non-deterministic LLM generation with deterministic AST validators to prevent hallucinations in mission-critical environments.
+              Coupling stochastic LLM reasoning with deterministic Tree-sitter AST validation to reliably detect vulnerabilities and synthesize verified patches.
             </p>
           </div>
 
-          <div className="about-reveal p-6 rounded-xl bg-surface hairline hover:border-gold/30 transition-colors duration-300">
+          <div className="about-reveal p-6 rounded-xl bg-surface hairline-royal royal-card-transition">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-[#3b2a8c]/30 hairline-gold flex items-center justify-center text-gold">
+              <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft">
+                <Database className="w-5 h-5" />
+              </div>
+              <h3 className="font-sans text-base font-medium text-cream">Hybrid RAG & Quantized LLMs</h3>
+            </div>
+            <p className="text-sm text-muted leading-relaxed font-light">
+              Engineering private scientific search engines via FAISS dense + BM25 sparse retrieval, Reciprocal Rank Fusion (RRF), cross-encoders, and quantized local inference.
+            </p>
+          </div>
+
+          <div className="about-reveal p-6 rounded-xl bg-surface hairline-royal royal-card-transition">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft">
                 <Cpu className="w-5 h-5" />
               </div>
-              <h3 className="font-sans text-base font-medium text-ivory">Agentic Loop Design</h3>
+              <h3 className="font-sans text-base font-medium text-cream">End-to-End System Design</h3>
             </div>
             <p className="text-sm text-muted leading-relaxed font-light">
-              Iterative, self-correcting agent state graphs using LangGraph and LangChain that reason through complex code vulnerability patches.
-            </p>
-          </div>
-
-          <div className="about-reveal p-6 rounded-xl bg-surface hairline hover:border-gold/30 transition-colors duration-300">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-[#3b2a8c]/30 hairline-gold flex items-center justify-center text-gold">
-                <Code2 className="w-5 h-5" />
-              </div>
-              <h3 className="font-sans text-base font-medium text-ivory">Full-Stack Craft</h3>
-            </div>
-            <p className="text-sm text-muted leading-relaxed font-light">
-              From low-level data structures (C++, Python) to high-speed reactive UI layers (React, Next.js, Vite), ensuring end-to-end responsiveness.
+              From low-level algorithms (C++, Python) to high-speed reactive UI layers (React, Next.js, Vite), ensuring sub-second response times and rock-solid state management.
             </p>
           </div>
         </div>

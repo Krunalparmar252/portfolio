@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowDownRight, FileText, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowDownRight, FileText, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,11 +57,12 @@ export const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    gsap.to(window, {
-      duration: 1.1,
-      scrollTo: { y: el, offsetY: 70 },
-      ease: 'power3.inOut',
-    });
+    if (window.__lenis) {
+      window.__lenis.scrollTo(el, { offset: -70, duration: 1.1 });
+    } else {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -73,17 +74,17 @@ export const Hero: React.FC = () => {
       <div className="flex flex-col items-start gap-8 md:gap-10">
         {/* Eyebrow badge */}
         <div className="hero-badge flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] uppercase tracking-widest text-muted">
-          <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#141124]/60 hairline-gold text-gold">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+          <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1635]/80 hairline-royal text-royal-soft">
+            <span className="w-1.5 h-1.5 rounded-full bg-royal animate-pulse" />
             AI/ML & Software Engineering
           </span>
           <span className="text-white/20">/</span>
-          <span className="flex items-center gap-1 text-muted">
-            <MapPin className="w-3.5 h-3.5 text-gold/80" />
-            Nadiad, Gujarat, India
+          <span className="flex items-center gap-1.5 text-cream/90">
+            <MapPin className="w-3.5 h-3.5 text-royal-soft" />
+            Nadiad, Gujarat
           </span>
           <span className="text-white/20">/</span>
-          <span className="text-gold-soft/80">B.Tech CE · 2027</span>
+          <span className="text-cream-soft/90 font-mono">B.Tech CE · 2027</span>
         </div>
 
         {/* Display Headline */}
@@ -96,7 +97,7 @@ export const Hero: React.FC = () => {
               <span className="hero-line block text-ivory">Engineering Autonomous</span>
             </div>
             <div className="overflow-hidden">
-              <span className="hero-line block bg-gradient-to-r from-gold-soft via-gold to-[#9e7d3b] bg-clip-text text-transparent italic">
+              <span className="hero-line block bg-gradient-to-r from-cream via-royal-soft to-royal bg-clip-text text-transparent italic">
                 Intelligence & Systems.
               </span>
             </div>
@@ -106,33 +107,38 @@ export const Hero: React.FC = () => {
         {/* Identity & Subtitle Description */}
         <div ref={metaRef} className="max-w-2xl flex flex-col gap-5">
           <p className="text-base sm:text-lg md:text-xl text-muted font-light leading-relaxed">
-            I am <span className="text-ivory font-medium">Krunal Parmar</span>. A computer engineering
+            I am <span className="text-cream font-medium">Krunal Parmar</span>. A computer engineering
             undergraduate architecting agentic AI pipelines, tree-sitter AST vulnerability analyzers, and
-            modular full-stack software with relentless craft.
+            local RAG scientific research assistants with production-grade craft.
           </p>
 
-          <div className="flex items-center gap-5 text-sm text-muted">
+          <div className="flex flex-wrap items-center gap-5 text-xs text-muted">
             <a
               href="https://github.com/Krunalparmar252"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-gold transition-colors duration-200"
+              className="flex items-center gap-2 hover:text-royal-soft transition-colors duration-200"
               aria-label="GitHub Profile"
             >
-              <Github className="w-4 h-4 text-gold" />
+              <Github className="w-4 h-4 text-royal" />
               <span className="font-mono text-xs">github.com/Krunalparmar252</span>
             </a>
-            <span className="text-white/10">•</span>
+            <span className="text-white/10 hidden sm:inline">•</span>
             <a
               href="https://linkedin.com/in/krunal-parmar-7287682b5"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-gold transition-colors duration-200"
+              className="flex items-center gap-2 hover:text-royal-soft transition-colors duration-200"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin className="w-4 h-4 text-gold" />
+              <Linkedin className="w-4 h-4 text-royal" />
               <span className="font-mono text-xs">LinkedIn</span>
             </a>
+            <span className="text-white/10 hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 text-muted font-mono">
+              <Phone className="w-3.5 h-3.5 text-royal/80" />
+              +91 87993 01121
+            </span>
           </div>
         </div>
 
@@ -140,7 +146,7 @@ export const Hero: React.FC = () => {
         <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-4">
           <button
             onClick={() => scrollToSection('projects')}
-            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-gold text-[#07060d] font-sans font-medium text-sm transition-all duration-300 hover:bg-gold-soft shadow-[0_0_25px_rgba(201,164,92,0.25)] hover:shadow-[0_0_35px_rgba(201,164,92,0.4)]"
+            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-royal text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-royal-deep shadow-[0_0_25px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.55)]"
           >
             <span>Explore Works</span>
             <ArrowDownRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -149,17 +155,17 @@ export const Hero: React.FC = () => {
           <a
             href="./Krunal_Resume.pdf"
             download="Krunal_Parmar_Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface hairline hover:border-gold/50 text-ivory font-sans text-sm font-normal transition-all duration-300 hover:bg-[#1f1a36]"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface hairline-cream hover:border-royal text-cream font-sans text-sm font-normal transition-all duration-300 hover:bg-[#121c40]"
           >
-            <FileText className="w-4 h-4 text-gold" />
+            <FileText className="w-4 h-4 text-royal-soft" />
             <span>Download Resume</span>
           </a>
 
           <button
             onClick={() => scrollToSection('contact')}
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hover:bg-white/[0.03] text-muted hover:text-ivory font-mono text-xs uppercase tracking-wider transition-all duration-200"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hover:bg-white/[0.04] text-muted hover:text-cream font-mono text-xs uppercase tracking-wider transition-all duration-200"
           >
-            <Mail className="w-3.5 h-3.5 text-gold/80" />
+            <Mail className="w-3.5 h-3.5 text-royal-soft" />
             <span>Get in Touch</span>
           </button>
         </div>
@@ -168,7 +174,7 @@ export const Hero: React.FC = () => {
       {/* Decorative vertical rhythm divider */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
         <span className="font-mono text-[9px] tracking-widest uppercase text-muted">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-gold via-gold/40 to-transparent" />
+        <div className="w-[1px] h-8 bg-gradient-to-b from-royal via-royal/40 to-transparent" />
       </div>
     </section>
   );
