@@ -62,15 +62,15 @@ html {
 
 /* Smooth Interactive Card Hover Transitions */
 .royal-card-transition {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .royal-card-transition:hover {
   transform: translateY(-2px);
-  border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: 0 16px 36px -10px rgba(5, 7, 20, 0.7), 0 0 24px rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 16px 36px -10px rgba(5, 7, 20, 0.7), 0 0 24px rgba(59, 130, 246, 0.2);
 }
 
 /* Noise / Grain Overlay */
@@ -131,45 +131,48 @@ html {
   top: 14px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  background: rgba(10, 15, 34, 0.92) !important;
-  border: 1px solid rgba(59, 130, 246, 0.3) !important;
-  box-shadow: 0 16px 40px rgba(2, 4, 12, 0.75), 0 0 28px rgba(59, 130, 246, 0.22), inset 0 1px 1px rgba(246, 239, 226, 0.18) !important;
-  backdrop-filter: blur(24px) saturate(130%) !important;
-  border-radius: 12px !important;
+  background: rgba(13, 20, 48, 0.48) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55),
+              inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+              0 0 24px rgba(59, 130, 246, 0.18) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  border-radius: 14px !important;
 }
 
 .portfolio-dock-host .animated-top-dock__item {
-  color: var(--muted) !important;
-  background: rgba(15, 23, 50, 0.7) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   font-family: "ThreeUI Fragment Mono", ui-monospace, monospace !important;
   font-size: 10.5px !important;
   letter-spacing: 0.08em !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+.portfolio-dock-host .animated-top-dock__item:hover,
 .portfolio-dock-host .animated-top-dock__item[aria-pressed="true"],
 .portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] {
   color: #ffffff !important;
-  border-color: #3b82f6 !important;
-  background: rgba(30, 58, 138, 0.9) !important;
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4) !important;
+  border-color: rgba(147, 197, 253, 0.7) !important;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.7) 0%, rgba(29, 78, 216, 0.5) 100%) !important;
+  box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
 }
 
 .portfolio-dock-host .animated-top-dock__item[aria-pressed="true"] .animated-top-dock__icon svg,
 .portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] .animated-top-dock__icon svg {
-  stroke: #60a5fa !important;
-  fill: #60a5fa !important;
+  stroke: #93c5fd !important;
+  fill: #93c5fd !important;
 }
 
+/* Remove the '+' logo button completely as requested */
 .portfolio-dock-host .animated-top-dock__logo {
-  background: #3b82f6 !important;
-  box-shadow: 0 0 14px rgba(59, 130, 246, 0.5) !important;
-}
-
-.portfolio-dock-host .animated-top-dock__logo svg path,
-.portfolio-dock-host .animated-top-dock__logo svg rect {
-  fill: #f8f7f4 !important;
+  display: none !important;
 }
 
 /* Tablet viewport dock optimization */

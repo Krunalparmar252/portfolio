@@ -112,11 +112,11 @@ export const NavigationDock: React.FC = () => {
       isProgrammaticScroll = true;
       updateActiveItem(idx);
 
-      // Perform jitter-free Lenis smooth scroll
+      // Perform jitter-free Lenis smooth scroll with snappy responsiveness
       if (window.__lenis) {
         window.__lenis.scrollTo(targetEl, {
           offset: -70,
-          duration: 1.1,
+          duration: 0.75,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       } else {
@@ -127,7 +127,7 @@ export const NavigationDock: React.FC = () => {
       clearTimeout(scrollTimeout);
       scrollTimeout = window.setTimeout(() => {
         isProgrammaticScroll = false;
-      }, 1200);
+      }, 750);
     };
 
     nav.addEventListener('click', handleNavClick, { capture: true });
@@ -161,7 +161,7 @@ export const NavigationDock: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center transition-all duration-500 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center transition-all duration-300 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'
       }`}
       role="banner"

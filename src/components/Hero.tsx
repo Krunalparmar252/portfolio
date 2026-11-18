@@ -29,37 +29,37 @@ export const Hero: React.FC = () => {
 
       tl.from('.hero-badge', {
         opacity: 0,
-        y: 20,
-        duration: 0.9,
+        y: 15,
+        duration: 0.5,
       })
         .from(
           '.hero-line',
           {
-            y: '100%',
+            y: '70%',
             opacity: 0,
-            duration: 1.1,
-            stagger: 0.14,
-            ease: 'power4.out',
+            duration: 0.65,
+            stagger: 0.08,
+            ease: 'power3.out',
           },
-          '-=0.6'
+          '-=0.35'
         )
         .from(
           metaRef.current,
           {
             opacity: 0,
-            y: 25,
-            duration: 0.9,
+            y: 15,
+            duration: 0.5,
           },
-          '-=0.6'
+          '-=0.35'
         )
         .from(
           ctaRef.current,
           {
             opacity: 0,
-            y: 20,
-            duration: 0.8,
+            y: 12,
+            duration: 0.45,
           },
-          '-=0.5'
+          '-=0.3'
         );
     }, containerRef);
 
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
     const el = document.getElementById(id);
     if (!el) return;
     if (window.__lenis) {
-      window.__lenis.scrollTo(el, { offset: -70, duration: 1.1 });
+      window.__lenis.scrollTo(el, { offset: -70, duration: 0.75 });
     } else {
       const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
       window.scrollTo({ top, behavior: 'smooth' });

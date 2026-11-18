@@ -16,12 +16,12 @@ export const EducationCertifications: React.FC = () => {
       gsap.from('.edu-item', {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 85%',
         },
-        y: 35,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        duration: 0.45,
+        stagger: 0.07,
         ease: 'power3.out',
       });
     }, sectionRef);

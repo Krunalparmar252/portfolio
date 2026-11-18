@@ -56,22 +56,22 @@ export const Projects: React.FC = () => {
       gsap.from('.project-row-1', {
         scrollTrigger: {
           trigger: card1Ref.current,
-          start: 'top 85%',
+          start: 'top 88%',
         },
-        y: 45,
+        y: 20,
         opacity: 0,
-        duration: 0.9,
+        duration: 0.5,
         ease: 'power3.out',
       });
 
       gsap.from('.project-row-2', {
         scrollTrigger: {
           trigger: card2Ref.current,
-          start: 'top 85%',
+          start: 'top 88%',
         },
-        y: 45,
+        y: 20,
         opacity: 0,
-        duration: 0.9,
+        duration: 0.5,
         ease: 'power3.out',
       });
     }, sectionRef);

@@ -16,12 +16,12 @@ export const About: React.FC = () => {
       gsap.from('.about-reveal', {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 85%',
         },
-        y: 35,
+        y: 20,
         opacity: 0,
-        duration: 0.9,
-        stagger: 0.15,
+        duration: 0.5,
+        stagger: 0.07,
         ease: 'power3.out',
       });
     }, sectionRef);

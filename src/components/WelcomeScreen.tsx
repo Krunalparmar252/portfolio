@@ -43,13 +43,13 @@ export const WelcomeScreen: React.FC = () => {
       return () => st.kill();
     }
 
-    // Scroll-driven letter zoom-through animation
+    // Scroll-driven letter zoom-through animation with immediate response
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.7,
+        scrub: 0.35,
         onUpdate: (self) => {
           // Disable pointer events when zooming past threshold
           if (self.progress > 0.88) {
@@ -132,7 +132,7 @@ export const WelcomeScreen: React.FC = () => {
   const handleEnterClick = () => {
     const heroEl = document.getElementById('hero');
     if (heroEl && window.__lenis) {
-      window.__lenis.scrollTo(heroEl, { offset: -70, duration: 1.4 });
+      window.__lenis.scrollTo(heroEl, { offset: -70, duration: 0.85 });
     } else if (heroEl) {
       heroEl.scrollIntoView({ behavior: 'smooth' });
     }

@@ -43,12 +43,12 @@ export const Experience: React.FC = () => {
       gsap.from('.exp-card', {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 85%',
         },
-        y: 40,
+        y: 20,
         opacity: 0,
-        duration: 0.9,
-        stagger: 0.2,
+        duration: 0.5,
+        stagger: 0.08,
         ease: 'power3.out',
       });
     }, sectionRef);
