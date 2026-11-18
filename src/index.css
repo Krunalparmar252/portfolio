@@ -1,0 +1,207 @@
+@import "./shaders/threeui.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #07060d;
+  --bg-raise: #0e0c1a;
+  --surface: #14112440;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-gold: rgba(201, 164, 92, 0.22);
+  --ivory: #f4efe4;
+  --muted: #a59fb8;
+  --gold: #c9a45c;
+  --gold-soft: #e6cf9a;
+  --royal: #3b2a8c;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--ivory);
+  font-family: "Inter Tight", Manrope, system-ui, -apple-system, sans-serif;
+  scroll-behavior: auto; /* Handled smoothly by Lenis */
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07060d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a162b;
+  border-radius: 3px;
+  border: 1px solid rgba(201, 164, 92, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a45c;
+}
+
+/* Fine hairline borders */
+.hairline {
+  border: 1px solid var(--line);
+}
+.hairline-gold {
+  border: 1px solid var(--line-gold);
+}
+.hairline-t {
+  border-top: 1px solid var(--line);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Noise / Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Vignette */
+.ambient-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(7, 6, 13, 0.75) 100%);
+}
+
+/* Royal Ambient Glow */
+.royal-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top Dock Navigation styling & placement */
+.portfolio-dock-host {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-dock-host .animated-top-dock-component {
+  background: transparent !important;
+  width: 100% !important;
+  height: 60px !important;
+  min-height: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.portfolio-dock-host .animated-top-dock-component__caption {
+  display: none !important;
+}
+
+.portfolio-dock-host .animated-top-dock__nav {
+  position: absolute !important;
+  top: 12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(14, 12, 26, 0.9) !important;
+  border: 1px solid rgba(201, 164, 92, 0.25) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(59, 42, 140, 0.2), inset 0 1px 1px rgba(230, 207, 154, 0.15) !important;
+  backdrop-filter: blur(20px) saturate(120%) !important;
+}
+
+.portfolio-dock-host .animated-top-dock__item {
+  color: var(--muted) !important;
+  background: rgba(22, 18, 40, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  font-family: "ThreeUI Fragment Mono", ui-monospace, monospace !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.08em !important;
+}
+
+.portfolio-dock-host .animated-top-dock__item[aria-pressed="true"],
+.portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] {
+  color: var(--ivory) !important;
+  border-color: var(--gold) !important;
+  background: rgba(35, 28, 62, 0.92) !important;
+  box-shadow: 0 4px 14px rgba(201, 164, 92, 0.25) !important;
+}
+
+.portfolio-dock-host .animated-top-dock__item[aria-pressed="true"] .animated-top-dock__icon svg,
+.portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] .animated-top-dock__icon svg {
+  stroke: var(--gold-soft);
+  fill: var(--gold-soft);
+}
+
+.portfolio-dock-host .animated-top-dock__logo {
+  background: #c9a45c !important;
+}
+
+.portfolio-dock-host .animated-top-dock__logo svg path,
+.portfolio-dock-host .animated-top-dock__logo svg rect {
+  fill: #07060d !important;
+}
+
+/* Tablet viewport dock optimization */
+@media (max-width: 768px) {
+  .portfolio-dock-host .animated-top-dock__nav {
+    max-width: calc(100vw - 20px) !important;
+    gap: 3px !important;
+    padding: 3px 6px !important;
+  }
+  .portfolio-dock-host .animated-top-dock__link {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 10px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* Mobile viewport dock optimization (<= 540px and 360px) */
+@media (max-width: 540px) {
+  .portfolio-dock-host .animated-top-dock__nav {
+    max-width: calc(100vw - 16px) !important;
+    gap: 2px !important;
+    padding: 3px 4px !important;
+    height: 35px !important;
+  }
+  .portfolio-dock-host .animated-top-dock__logo {
+    width: 25px !important;
+    height: 25px !important;
+    flex-shrink: 0 !important;
+  }
+  .portfolio-dock-host .animated-top-dock__link {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 6px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.03em !important;
+    height: 25px !important;
+  }
+  .portfolio-dock-host .animated-top-dock__icon {
+    display: none !important; /* Conceal icon on small mobile to let label fit with generous touch target */
+  }
+  .portfolio-dock-host .animated-top-dock__item::after {
+    content: '';
+    position: absolute;
+    inset: -9px; /* Tap targets >= 44px */
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
