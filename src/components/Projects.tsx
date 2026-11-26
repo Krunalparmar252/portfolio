@@ -227,7 +227,7 @@ export const Projects: React.FC = () => {
             {/* Right: Interactive 4-Stage Pipeline Diagram & Patch Diff */}
             <div className="lg:col-span-7 flex flex-col gap-4">
               {/* Pipeline Interactive Stages */}
-              <div className="p-4 sm:p-5 rounded-xl bg-[#0b102b]/90 hairline-royal flex flex-col gap-4">
+              <div className="p-4 sm:p-5 rounded-xl bg-[#141310]/90 hairline-royal flex flex-col gap-4">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-cream uppercase tracking-wider flex items-center gap-2 font-medium">
                     <Layers className="w-3.5 h-3.5 text-royal-soft" />
@@ -254,7 +254,7 @@ export const Projects: React.FC = () => {
                         className={`p-3 rounded-xl border text-left transition-all duration-200 ${
                           isActive
                             ? 'bg-[#3c3830]/50 border-royal text-cream shadow-[0_0_15px_rgba(216, 206, 184,0.35)]'
-                            : 'bg-[#0f1738]/60 border-white/5 text-muted hover:border-royal/30'
+                            : 'bg-[#1c1a16]/60 border-white/5 text-muted hover:border-royal/30'
                         }`}
                       >
                         <div className="font-mono text-[10px] text-royal-soft mb-0.5">{stage.label}</div>

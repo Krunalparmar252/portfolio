@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
       className="relative min-h-[92vh] flex flex-col justify-center pt-28 pb-20 px-4 sm:px-8 max-w-content mx-auto"
     >
       {/* Floating Decorative Hologram Node in Top Right */}
-      <div className="absolute top-24 right-6 sm:right-12 xl:right-32 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(8, 8, 7,0.6)]">
+      <div className="absolute top-24 right-6 sm:right-12 xl:right-32 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#12110f]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(8, 8, 7,0.6)]">
         <div className="relative w-8 h-8 rounded-lg bg-royal/10 border border-royal/30 flex items-center justify-center">
           <Activity className="w-4 h-4 text-royal-soft animate-pulse" />
         </div>

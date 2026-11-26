@@ -161,7 +161,7 @@ export const TerminalSection: React.FC = () => {
         <span className="font-mono text-[11px] text-cream/70 uppercase">Terminal Simulator</span>
       </div>
 
-      <div className="rounded-2xl bg-[#070b1e] hairline-royal shadow-[0_20px_50px_rgba(2,4,14,0.7)] overflow-hidden max-w-4xl mx-auto font-mono text-xs">
+      <div className="rounded-2xl bg-[#0e0d0b] hairline-royal shadow-[0_20px_50px_rgba(2,4,14,0.7)] overflow-hidden max-w-4xl mx-auto font-mono text-xs">
         {/* Terminal Title Bar */}
         <div className="px-4 py-3 bg-[#181613] hairline-b flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -183,13 +183,13 @@ export const TerminalSection: React.FC = () => {
         </div>
 
         {/* Quick Action Command Chips */}
-        <div className="px-4 py-2.5 bg-[#0a0f27] hairline-b flex items-center gap-2 overflow-x-auto text-[11px]">
+        <div className="px-4 py-2.5 bg-[#141310] hairline-b flex items-center gap-2 overflow-x-auto text-[11px]">
           <span className="text-muted/60 uppercase text-[10px] shrink-0">Quick run:</span>
           {['help', 'about', 'projects', 'experience', 'skills', 'contact'].map((c) => (
             <button
               key={c}
               onClick={() => handleCommand(c)}
-              className="px-2.5 py-0.5 rounded bg-[#10193d] hairline-royal hover:border-royal text-royal-soft hover:text-white transition-all whitespace-nowrap"
+              className="px-2.5 py-0.5 rounded bg-[#1c1a16] hairline-royal hover:border-royal text-royal-soft hover:text-white transition-all whitespace-nowrap"
             >
               {c}
             </button>
@@ -223,7 +223,7 @@ export const TerminalSection: React.FC = () => {
         {/* Prompt Input Form */}
         <form
           onSubmit={onSubmit}
-          className="px-4 py-3 bg-[#0a0f27] hairline-t flex items-center gap-2 text-sm"
+          className="px-4 py-3 bg-[#141310] hairline-t flex items-center gap-2 text-sm"
         >
           <span className="text-royal font-bold font-mono">❯</span>
           <input
