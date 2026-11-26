@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown, Sparkles } from 'lucide-react';
+import { ScrambleText } from './ScrambleText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -166,7 +167,9 @@ export const WelcomeScreen: React.FC = () => {
           {/* Subtle Top Badge */}
           <div className="mb-4 sm:mb-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-royal/30 bg-royal/10 text-royal-soft font-mono text-[10px] sm:text-[11px] uppercase tracking-widest shadow-[0_0_16px_rgba(59,130,246,0.2)]">
             <Sparkles className="w-3 h-3 text-cream animate-pulse" />
-            <span>Krunal Parmar · Applied AI & Software Engineering</span>
+            <span>
+              <ScrambleText text="Krunal Parmar" duration={850} className="text-cream font-semibold" /> · Applied AI & Software Engineering
+            </span>
           </div>
 
           {/* Massive Display Word: WELCOME */}

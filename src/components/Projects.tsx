@@ -53,27 +53,53 @@ export const Projects: React.FC = () => {
 
     // Parallax scroll triggers
     const ctx = gsap.context(() => {
-      gsap.from('.project-row-1', {
-        scrollTrigger: {
-          trigger: card1Ref.current,
-          start: 'top 88%',
+      gsap.fromTo(
+        '.project-row-1',
+        {
+          y: 30,
+          scale: 0.94,
+          borderRadius: '36px',
+          opacity: 0,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
+        {
+          scrollTrigger: {
+            trigger: card1Ref.current,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
+          },
+          y: 0,
+          scale: 1,
+          borderRadius: '16px',
+          opacity: 1,
+          duration: 0.55,
+          ease: 'power3.out',
+        }
+      );
 
-      gsap.from('.project-row-2', {
-        scrollTrigger: {
-          trigger: card2Ref.current,
-          start: 'top 88%',
+      gsap.fromTo(
+        '.project-row-2',
+        {
+          y: 30,
+          scale: 0.94,
+          borderRadius: '36px',
+          opacity: 0,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
+        {
+          scrollTrigger: {
+            trigger: card2Ref.current,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
+          },
+          y: 0,
+          scale: 1,
+          borderRadius: '16px',
+          opacity: 1,
+          duration: 0.55,
+          ease: 'power3.out',
+        }
+      );
     }, sectionRef);
 
     return () => {

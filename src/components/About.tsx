@@ -13,17 +13,28 @@ export const About: React.FC = () => {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('.about-reveal', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
+      gsap.fromTo(
+        '.about-reveal',
+        {
+          y: 26,
+          scale: 0.96,
+          opacity: 0,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: 'power3.out',
-      });
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
+          },
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.07,
+          ease: 'power3.out',
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();

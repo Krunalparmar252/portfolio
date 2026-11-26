@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { ScrollProgress } from './components/ScrollProgress';
+import { ScrollMorph } from './components/ScrollMorph';
 import { FloatingAura } from './components/FloatingAura';
 import { NavigationDock } from './components/NavigationDock';
 import { CanvasBackground } from './components/CanvasBackground';
@@ -66,6 +67,7 @@ export const App: React.FC = () => {
       <div className="grain-overlay" aria-hidden="true" />
       <div className="ambient-vignette" aria-hidden="true" />
       <CanvasBackground />
+      <ScrollMorph />
 
       {/* Floating Ambient Aura & Spatial Elements (replaces old cursor dot/ring) */}
       <FloatingAura />

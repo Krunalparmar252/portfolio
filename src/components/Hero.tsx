@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ArrowDownRight, FileText, Github, Linkedin, Mail, MapPin, Phone, Radio, Activity } from 'lucide-react';
+import { ScrambleText } from './ScrambleText';
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -138,7 +139,7 @@ export const Hero: React.FC = () => {
         {/* Identity & Subtitle Description */}
         <div ref={metaRef} className="max-w-2xl flex flex-col gap-5">
           <p className="text-base sm:text-lg md:text-xl text-muted font-light leading-relaxed">
-            I am <span className="text-cream font-medium">Krunal Parmar</span>. A computer engineering
+            I am <ScrambleText text="Krunal Parmar" className="text-cream font-medium" duration={950} />. A computer engineering
             undergraduate architecting agentic AI pipelines, tree-sitter AST vulnerability analyzers, and
             local RAG scientific research assistants with production-grade craft.
           </p>

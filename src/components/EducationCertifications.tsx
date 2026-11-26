@@ -13,17 +13,30 @@ export const EducationCertifications: React.FC = () => {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('.edu-item', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
+      gsap.fromTo(
+        '.edu-item',
+        {
+          y: 24,
+          scale: 0.95,
+          borderRadius: '28px',
+          opacity: 0,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.45,
-        stagger: 0.07,
-        ease: 'power3.out',
-      });
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
+          },
+          y: 0,
+          scale: 1,
+          borderRadius: '16px',
+          opacity: 1,
+          duration: 0.45,
+          stagger: 0.07,
+          ease: 'power3.out',
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();

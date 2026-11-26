@@ -40,17 +40,30 @@ export const Experience: React.FC = () => {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('.exp-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
+      gsap.fromTo(
+        '.exp-card',
+        {
+          y: 26,
+          scale: 0.95,
+          borderRadius: '32px',
+          opacity: 0,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out',
-      });
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
+          },
+          y: 0,
+          scale: 1,
+          borderRadius: '16px',
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power3.out',
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
