@@ -32,6 +32,8 @@ export default {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Inter Tight"', 'Manrope', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"ThreeUI Fragment Mono"', '"Fragment Mono"', 'ui-monospace', 'monospace'],
+        funky: ['"Syne"', '"Unbounded"', 'sans-serif'],
+        chrome: ['"Unbounded"', '"Syne"', 'sans-serif'],
       },
       maxWidth: {
         'content': '1280px',

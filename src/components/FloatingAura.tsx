@@ -76,6 +76,23 @@ export const FloatingAura: React.FC = () => {
             <span>SYS // 60FPS</span>
           </div>
         </div>
+
+        {/* Right-Side Glassmorphic Circular Ring Strip (inspired by editorial chrome layout) */}
+        <div className="hidden xl:flex flex-col items-center gap-5 fixed top-24 right-5 px-3 py-5 rounded-2xl bg-gradient-to-b from-white/[0.07] via-[#0c1228]/50 to-white/[0.02] border border-white/15 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)]">
+          <div className="relative w-16 h-16 rounded-full border border-cream/35 flex flex-col items-center justify-center text-center">
+            <div className="absolute inset-0 rounded-full border border-dashed border-royal-soft/45 animate-spin-slow" />
+            <span className="font-funky text-[9px] font-bold tracking-wider text-cream">KRUNAL</span>
+            <span className="font-mono text-[8px] text-royal-soft">2027</span>
+          </div>
+          <div className="relative w-16 h-16 rounded-full border border-royal/40 flex flex-col items-center justify-center text-center">
+            <div
+              className="absolute inset-0 rounded-full border border-dotted border-cream/35 animate-spin-slow"
+              style={{ animationDirection: 'reverse' }}
+            />
+            <span className="font-funky text-[9px] font-bold tracking-wider text-ivory">AI · ML</span>
+            <span className="font-mono text-[8px] text-muted">#0252</span>
+          </div>
+        </div>
       </div>
     </>
   );

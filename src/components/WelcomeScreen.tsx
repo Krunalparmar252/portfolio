@@ -172,11 +172,11 @@ export const WelcomeScreen: React.FC = () => {
             </span>
           </div>
 
-          {/* Massive Display Word: WELCOME */}
+          {/* Massive Display Word: WELCOME in Funky Liquid-Chrome */}
           <div
             ref={wordRef}
             onClick={handleEnterClick}
-            className="welcome-word font-serif font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#f6efe2] to-[#60a5fa] drop-shadow-[0_4px_35px_rgba(59,130,246,0.4)] will-change-transform text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14.5rem] leading-none cursor-pointer"
+            className="welcome-word font-funky font-extrabold tracking-tighter chrome-text will-change-transform text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[13rem] leading-none cursor-pointer"
             style={{ transformOrigin: '51% 50%' }}
             title="Click or scroll to enter"
           >

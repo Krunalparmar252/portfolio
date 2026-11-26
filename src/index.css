@@ -73,6 +73,48 @@ html {
   box-shadow: 0 16px 36px -10px rgba(5, 7, 20, 0.7), 0 0 24px rgba(59, 130, 246, 0.2);
 }
 
+/* Liquid Chrome / Metallic Silk Text Gradient */
+.chrome-text {
+  background: linear-gradient(
+    115deg,
+    #ffffff 0%,
+    #f6efe2 20%,
+    #93c5fd 40%,
+    #ffffff 55%,
+    #3b82f6 75%,
+    #f6efe2 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: chrome-flow 6s linear infinite;
+  filter: drop-shadow(0 6px 24px rgba(59, 130, 246, 0.28));
+}
+
+@keyframes chrome-flow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 220% center;
+  }
+}
+
+/* Slow orbital ring rotation for glass badges */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
 /* Noise / Grain Overlay */
 .grain-overlay {
   position: fixed;

@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
       className="relative min-h-[92vh] flex flex-col justify-center pt-28 pb-20 px-4 sm:px-8 max-w-content mx-auto"
     >
       {/* Floating Decorative Hologram Node in Top Right */}
-      <div className="absolute top-24 right-6 sm:right-12 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(5,7,20,0.6)]">
+      <div className="absolute top-24 right-6 sm:right-12 xl:right-32 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(5,7,20,0.6)]">
         <div className="relative w-8 h-8 rounded-lg bg-royal/10 border border-royal/30 flex items-center justify-center">
           <Activity className="w-4 h-4 text-royal-soft animate-pulse" />
         </div>
@@ -123,13 +123,13 @@ export const Hero: React.FC = () => {
         <div className="overflow-hidden">
           <h1
             ref={headlineRef}
-            className="font-serif font-normal text-[clamp(2.8rem,7.5vw,7.2rem)] leading-[0.98] tracking-[-0.03em] text-ivory"
+            className="font-funky font-extrabold text-[clamp(2.4rem,6.6vw,6.1rem)] leading-[0.98] tracking-[-0.03em] text-ivory"
           >
             <div className="overflow-hidden">
               <span className="hero-line block text-ivory">Engineering Autonomous</span>
             </div>
             <div className="overflow-hidden">
-              <span className="hero-line block bg-gradient-to-r from-cream via-royal-soft to-royal bg-clip-text text-transparent italic">
+              <span className="hero-line block chrome-text font-serif italic font-semibold text-[clamp(2.7rem,7.2vw,6.8rem)]">
                 Intelligence & Systems.
               </span>
             </div>
