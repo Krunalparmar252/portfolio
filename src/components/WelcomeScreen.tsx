@@ -86,18 +86,18 @@ export const WelcomeScreen: React.FC = () => {
       0
     );
 
-    // 2. Letters zoom in towards camera, expand, and blunt/blur as they fly through
+    // 2. GPU-only letter zoom-through (transform + opacity only, zero layout/blur thrashing)
+    const isMobile = window.innerWidth < 768;
     tl.to(
       word,
       {
-        scale: 40,
-        letterSpacing: '0.85em',
-        filter: 'blur(22px)',
-        transformOrigin: '51% 50%', // Centered right through the letter 'C' aperture
-        ease: 'power3.in',
-        duration: 0.9,
+        scale: isMobile ? 12 : 28,
+        opacity: 0,
+        transformOrigin: '51% 50%',
+        ease: 'power2.in',
+        duration: 0.85,
       },
-      0.05
+      0.06
     );
 
     // 3. Stargate aperture bloom expanding through the center
@@ -143,7 +143,7 @@ export const WelcomeScreen: React.FC = () => {
     <div
       ref={containerRef}
       id="welcome-container"
-      className="relative w-full h-[210vh] z-30"
+      className="relative w-full h-[155vh] sm:h-[185vh] z-30"
     >
       <div
         ref={stickyRef}

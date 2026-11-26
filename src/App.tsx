@@ -19,6 +19,7 @@ import { EducationCertifications } from './components/EducationCertifications';
 import { ContactFooter } from './components/ContactFooter';
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 export const App: React.FC = () => {
   useEffect(() => {

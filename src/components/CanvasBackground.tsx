@@ -36,8 +36,8 @@ const FRAGMENT_SHADER = `
   float fbm(vec2 p) {
     float v = 0.0;
     float a = 0.5;
-    mat2 rot = mat2(cos(0.45), sin(0.45), -sin(0.45), cos(0.45));
-    for (int i = 0; i < 4; i++) {
+    mat2 rot = mat2(0.9004, 0.4350, -0.4350, 0.9004);
+    for (int i = 0; i < 3; i++) {
       v += a * noise(p);
       p = rot * p * 2.02;
       a *= 0.5;
@@ -107,7 +107,9 @@ export const CanvasBackground: React.FC = () => {
       return;
     }
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    const isMobile = window.innerWidth < 768;
+    // Lower internal render scale for silky 60fps on mobile GPUs (soft silk gradients look identical)
+    renderer.setPixelRatio(isMobile ? 0.55 : Math.min(window.devicePixelRatio, 1.0));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
@@ -138,6 +140,7 @@ export const CanvasBackground: React.FC = () => {
 
     let targetMouseX = 0.5;
     let targetMouseY = 0.5;
+    let cachedMaxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
 
     const handlePointerMove = (e: PointerEvent) => {
       targetMouseX = e.clientX / Math.max(window.innerWidth, 1);
@@ -145,14 +148,16 @@ export const CanvasBackground: React.FC = () => {
     };
 
     const handleScroll = () => {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      uniforms.uScroll.value = window.scrollY / maxScroll;
+      uniforms.uScroll.value = window.scrollY / cachedMaxScroll;
     };
 
     const handleResize = () => {
       if (!renderer) return;
+      const mobileNow = window.innerWidth < 768;
+      renderer.setPixelRatio(mobileNow ? 0.55 : Math.min(window.devicePixelRatio, 1.0));
       renderer.setSize(window.innerWidth, window.innerHeight);
       uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+      cachedMaxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     };
 
     window.addEventListener('pointermove', handlePointerMove, { passive: true });

@@ -131,7 +131,6 @@ export const ScrollMorph: React.FC = () => {
             fill="url(#royalMorphGrad)"
             stroke="url(#royalMorphStroke)"
             strokeWidth="1"
-            className="blur-[2px]"
           />
           <path
             ref={innerPathRef}

@@ -39,13 +39,13 @@ export const Skills: React.FC = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
+    const isMobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '.skill-card',
         {
-          y: 24,
-          scale: 0.93,
-          borderRadius: '28px',
+          y: isMobile ? 14 : 20,
+          scale: isMobile ? 0.98 : 0.95,
           opacity: 0,
         },
         {
@@ -53,14 +53,13 @@ export const Skills: React.FC = () => {
             trigger: sectionRef.current,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: isMobile ? 'play none none none' : 'play reverse play reverse',
           },
           y: 0,
           scale: 1,
-          borderRadius: '16px',
           opacity: 1,
-          duration: 0.45,
-          stagger: 0.06,
+          duration: isMobile ? 0.32 : 0.42,
+          stagger: 0.05,
           ease: 'power3.out',
         }
       );

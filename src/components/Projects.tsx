@@ -51,14 +51,16 @@ export const Projects: React.FC = () => {
     const cleanup1 = setupCursorGlow(card1Ref.current);
     const cleanup2 = setupCursorGlow(card2Ref.current);
 
-    // Parallax scroll triggers
+    const isMobile = window.innerWidth < 768;
+    const toggle = isMobile ? 'play none none none' : 'play reverse play reverse';
+
+    // GPU-only parallax/morph triggers (no borderRadius paint thrashing)
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '.project-row-1',
         {
-          y: 30,
-          scale: 0.94,
-          borderRadius: '36px',
+          y: isMobile ? 16 : 24,
+          scale: isMobile ? 0.98 : 0.95,
           opacity: 0,
         },
         {
@@ -66,13 +68,12 @@ export const Projects: React.FC = () => {
             trigger: card1Ref.current,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: toggle,
           },
           y: 0,
           scale: 1,
-          borderRadius: '16px',
           opacity: 1,
-          duration: 0.55,
+          duration: isMobile ? 0.35 : 0.48,
           ease: 'power3.out',
         }
       );
@@ -80,9 +81,8 @@ export const Projects: React.FC = () => {
       gsap.fromTo(
         '.project-row-2',
         {
-          y: 30,
-          scale: 0.94,
-          borderRadius: '36px',
+          y: isMobile ? 16 : 24,
+          scale: isMobile ? 0.98 : 0.95,
           opacity: 0,
         },
         {
@@ -90,13 +90,12 @@ export const Projects: React.FC = () => {
             trigger: card2Ref.current,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: toggle,
           },
           y: 0,
           scale: 1,
-          borderRadius: '16px',
           opacity: 1,
-          duration: 0.55,
+          duration: isMobile ? 0.35 : 0.48,
           ease: 'power3.out',
         }
       );
