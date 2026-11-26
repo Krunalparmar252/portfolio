@@ -64,20 +64,20 @@ const FRAGMENT_SHADER = `
 
     float f = fbm(uv + 2.1 * r);
 
-    // Sculpted chiaroscuro light ribbons (high contrast folds)
-    float ribbonCream = smoothstep(0.54, 0.84, f) * 0.58;
-    float ribbonBlue  = smoothstep(0.40, 0.76, q.x * 0.65 + r.y * 0.35) * 0.46;
-    float sharpCrest  = pow(max(0.0, 1.0 - abs(f - 0.62) * 5.2), 2.3) * 0.28;
+    // Sculpted chiaroscuro light ribbons (exact warm bone & charcoal silk folds)
+    float ribbonCream = smoothstep(0.50, 0.84, f) * 0.62;
+    float ribbonMid   = smoothstep(0.38, 0.76, q.x * 0.65 + r.y * 0.35) * 0.38;
+    float sharpCrest  = pow(max(0.0, 1.0 - abs(f - 0.62) * 5.2), 2.3) * 0.30;
 
-    vec3 obsidian   = vec3(0.018, 0.025, 0.065); // Deep midnight obsidian
-    vec3 warmCream  = vec3(0.965, 0.937, 0.886); // #f6efe2
-    vec3 royalBlue  = vec3(0.231, 0.510, 0.965); // #3b82f6
-    vec3 softAzure  = vec3(0.376, 0.647, 0.980); // #60a5fa
+    vec3 obsidian   = vec3(0.031, 0.031, 0.028); // #080807 deep charcoal
+    vec3 warmCream  = vec3(0.910, 0.875, 0.808); // #e8dfd0 silk bone
+    vec3 midBronze  = vec3(0.480, 0.445, 0.385); // #7a7162 warm taupe-bronze
+    vec3 softSilver = vec3(0.847, 0.808, 0.722); // #d8ceb8 champagne chrome
 
     vec3 col = obsidian;
-    col = mix(col, royalBlue, ribbonBlue);
+    col = mix(col, midBronze, ribbonMid);
     col = mix(col, warmCream, ribbonCream);
-    col += mix(softAzure, warmCream, 0.55) * sharpCrest;
+    col += mix(softSilver, warmCream, 0.6) * sharpCrest;
 
     // Subtle edge vignette so text stays ultra-legible
     float vig = 1.0 - smoothstep(0.45, 1.35, length((vUv - 0.5) * aspect));
@@ -204,7 +204,7 @@ export const CanvasBackground: React.FC = () => {
   return (
     <div
       ref={hostRef}
-      className="fixed inset-0 pointer-events-none z-0 bg-[#050714]"
+      className="fixed inset-0 pointer-events-none z-0 bg-[#080807]"
       aria-hidden="true"
     />
   );

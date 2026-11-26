@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
       className="relative min-h-[92vh] flex flex-col justify-center pt-28 pb-20 px-4 sm:px-8 max-w-content mx-auto"
     >
       {/* Floating Decorative Hologram Node in Top Right */}
-      <div className="absolute top-24 right-6 sm:right-12 xl:right-32 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(5,7,20,0.6)]">
+      <div className="absolute top-24 right-6 sm:right-12 xl:right-32 hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#090f28]/80 hairline-royal backdrop-blur-md animate-float-slow shadow-[0_8px_32px_rgba(8, 8, 7,0.6)]">
         <div className="relative w-8 h-8 rounded-lg bg-royal/10 border border-royal/30 flex items-center justify-center">
           <Activity className="w-4 h-4 text-royal-soft animate-pulse" />
         </div>
@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
       <div className="flex flex-col items-start gap-8 md:gap-10">
         {/* Eyebrow badge + Live Telemetry HUD */}
         <div className="hero-badge flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] uppercase tracking-widest text-muted">
-          <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1635]/80 hairline-royal text-royal-soft">
+          <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#191714]/80 hairline-royal text-royal-soft">
             <span className="w-1.5 h-1.5 rounded-full bg-royal animate-pulse" />
             AI/ML & Software Engineering
           </span>
@@ -178,7 +178,7 @@ export const Hero: React.FC = () => {
         <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-4">
           <button
             onClick={() => scrollToSection('projects')}
-            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-royal text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-royal-deep shadow-[0_0_25px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.55)] cursor-pointer"
+            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-royal text-[#080807] font-sans font-semibold text-sm transition-all duration-300 hover:bg-royal-soft shadow-[0_0_25px_rgba(216,206,184,0.28)] hover:shadow-[0_0_35px_rgba(232,223,208,0.45)] cursor-pointer"
           >
             <span>Explore Projects</span>
             <ArrowDownRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -187,7 +187,7 @@ export const Hero: React.FC = () => {
           <a
             href="/portfolio/Krunal_Resume.pdf"
             download="Krunal_Parmar_Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hairline-royal text-cream font-sans text-sm hover:border-royal hover:bg-royal/10 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.15)]"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-transparent hairline-royal text-cream font-sans text-sm hover:border-royal hover:bg-royal/10 transition-all duration-300 shadow-[0_0_15px_rgba(216, 206, 184,0.15)]"
           >
             <FileText className="w-4 h-4 text-royal-soft" />
             <span>Resume (PDF)</span>

@@ -48,7 +48,7 @@ export const FloatingAura: React.FC = () => {
       {/* Ethereal Floating Ambient Aura behind the mouse */}
       <div
         ref={auraRef}
-        className="fixed top-0 left-0 w-[460px] h-[460px] -ml-[230px] -mt-[230px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.13)_0%,rgba(96,165,250,0.06)_40%,transparent_70%)] blur-3xl pointer-events-none z-[2] opacity-0 will-change-transform hidden md:block"
+        className="fixed top-0 left-0 w-[460px] h-[460px] -ml-[230px] -mt-[230px] rounded-full bg-[radial-gradient(circle,rgba(216, 206, 184,0.13)_0%,rgba(232, 223, 208,0.06)_40%,transparent_70%)] blur-3xl pointer-events-none z-[2] opacity-0 will-change-transform hidden md:block"
         aria-hidden="true"
       />
 
@@ -78,7 +78,7 @@ export const FloatingAura: React.FC = () => {
         </div>
 
         {/* Right-Side Glassmorphic Circular Ring Strip (inspired by editorial chrome layout) */}
-        <div className="hidden xl:flex flex-col items-center gap-5 fixed top-24 right-5 px-3 py-5 rounded-2xl bg-gradient-to-b from-white/[0.07] via-[#0c1228]/50 to-white/[0.02] border border-white/15 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)]">
+        <div className="hidden xl:flex flex-col items-center gap-5 fixed top-24 right-5 px-3 py-5 rounded-2xl bg-gradient-to-b from-white/[0.07] via-[#141310]/50 to-white/[0.02] border border-white/15 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)]">
           <div className="relative w-16 h-16 rounded-full border border-cream/35 flex flex-col items-center justify-center text-center">
             <div className="absolute inset-0 rounded-full border border-dashed border-royal-soft/45 animate-spin-slow" />
             <span className="font-funky text-[9px] font-bold tracking-wider text-cream">KRUNAL</span>

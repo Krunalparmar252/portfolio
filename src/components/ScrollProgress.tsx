@@ -23,7 +23,7 @@ export const ScrollProgress: React.FC = () => {
       className="fixed top-0 left-0 right-0 h-[2.5px] z-[100] pointer-events-none origin-left bg-gradient-to-r from-royal via-cream to-royal-soft transition-transform duration-75 ease-out"
       style={{
         transform: `scaleX(${progress})`,
-        boxShadow: '0 0 10px rgba(96, 165, 250, 0.75), 0 0 4px rgba(246, 239, 226, 0.9)',
+        boxShadow: '0 0 10px rgba(232, 223, 208, 0.75), 0 0 4px rgba(246, 239, 226, 0.9)',
       }}
       aria-hidden="true"
     />

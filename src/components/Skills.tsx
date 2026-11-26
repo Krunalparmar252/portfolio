@@ -91,7 +91,7 @@ export const Skills: React.FC = () => {
           return (
             <div
               key={idx}
-              className="skill-card p-6 sm:p-8 rounded-2xl bg-[#090e24]/90 hairline-royal royal-card-transition flex flex-col justify-between group"
+              className="skill-card p-6 sm:p-8 rounded-2xl bg-[#11100e]/90 hairline-royal royal-card-transition flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -113,7 +113,7 @@ export const Skills: React.FC = () => {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 rounded-lg bg-[#0e163a] hairline-royal text-xs font-mono text-cream transition-colors duration-200 group-hover:border-royal/50"
+                    className="px-3 py-1.5 rounded-lg bg-[#191714] hairline-royal text-xs font-mono text-cream transition-colors duration-200 group-hover:border-royal/50"
                   >
                     {skill}
                   </span>

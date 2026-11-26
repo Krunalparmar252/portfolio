@@ -131,7 +131,7 @@ export const Projects: React.FC = () => {
         {/* ================================================================ */}
         <div
           ref={card1Ref}
-          className="project-row-1 relative group rounded-2xl p-6 sm:p-10 bg-[#090e24]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
+          className="project-row-1 relative group rounded-2xl p-6 sm:p-10 bg-[#11100e]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
           style={
             {
               '--glow-x': '50%',
@@ -144,7 +144,7 @@ export const Projects: React.FC = () => {
             className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               background:
-                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(59, 130, 246, 0.2), transparent 45%)',
+                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(216, 206, 184, 0.2), transparent 45%)',
             }}
           />
 
@@ -159,7 +159,7 @@ export const Projects: React.FC = () => {
                 {/* Live AST Radar Indicator */}
                 <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-royal/30 bg-royal/10 text-[9px] font-mono text-royal-soft">
                   <div className="relative w-2.5 h-2.5 rounded-full border border-royal/50 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(96,165,250,0.9)_360deg)] animate-radar rounded-full" />
+                    <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(232, 223, 208,0.9)_360deg)] animate-radar rounded-full" />
                     <div className="w-0.5 h-0.5 rounded-full bg-cream" />
                   </div>
                   <span>SCANNER LIVE</span>
@@ -195,7 +195,7 @@ export const Projects: React.FC = () => {
                 {['Python', 'FastAPI', 'LangChain', 'LangGraph', 'tree-sitter', 'LLMs'].map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded-lg bg-[#0e1638] hairline-royal text-[11px] font-mono text-royal-soft"
+                    className="px-2.5 py-1 rounded-lg bg-[#191714] hairline-royal text-[11px] font-mono text-royal-soft"
                   >
                     {tech}
                   </span>
@@ -253,7 +253,7 @@ export const Projects: React.FC = () => {
                         onClick={() => setPipelineStep(stage.id)}
                         className={`p-3 rounded-xl border text-left transition-all duration-200 ${
                           isActive
-                            ? 'bg-[#1e3a8a]/50 border-royal text-cream shadow-[0_0_15px_rgba(59,130,246,0.35)]'
+                            ? 'bg-[#3c3830]/50 border-royal text-cream shadow-[0_0_15px_rgba(216, 206, 184,0.35)]'
                             : 'bg-[#0f1738]/60 border-white/5 text-muted hover:border-royal/30'
                         }`}
                       >
@@ -266,8 +266,8 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Code-Diff "Patch Proposed" Visual Panel */}
-              <div className="rounded-xl bg-[#060918] hairline-royal overflow-hidden font-mono text-[11px] sm:text-xs">
-                <div className="px-4 py-2.5 bg-[#0d1433] hairline-b flex items-center justify-between text-muted">
+              <div className="rounded-xl bg-[#0c0b0a] hairline-royal overflow-hidden font-mono text-[11px] sm:text-xs">
+                <div className="px-4 py-2.5 bg-[#181613] hairline-b flex items-center justify-between text-muted">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -303,7 +303,7 @@ export const Projects: React.FC = () => {
         {/* ================================================================ */}
         <div
           ref={card2Ref}
-          className="project-row-2 relative group rounded-2xl p-6 sm:p-10 bg-[#090e24]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
+          className="project-row-2 relative group rounded-2xl p-6 sm:p-10 bg-[#11100e]/90 hairline-royal royal-card-transition shadow-2xl overflow-hidden"
           style={
             {
               '--glow-x': '50%',
@@ -316,29 +316,29 @@ export const Projects: React.FC = () => {
             className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               background:
-                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(59, 130, 246, 0.2), transparent 45%)',
+                'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(216, 206, 184, 0.2), transparent 45%)',
             }}
           />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left: Interactive RAG Telemetry & Local Architecture Visual */}
             <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col gap-4">
-              <div className="rounded-xl bg-[#060918] hairline-royal overflow-hidden shadow-xl">
+              <div className="rounded-xl bg-[#0c0b0a] hairline-royal overflow-hidden shadow-xl">
                 {/* Visual Header */}
-                <div className="px-4 py-2.5 bg-[#0d1433] hairline-b flex items-center justify-between">
+                <div className="px-4 py-2.5 bg-[#181613] hairline-b flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-royal animate-ping" />
                     <span className="font-mono text-[11px] text-cream font-medium">
                       Local RAG Pipeline Telemetry
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-[#121c45] p-1 rounded-lg text-[10px] font-mono">
+                  <div className="flex items-center gap-1.5 bg-[#1f1d19] p-1 rounded-lg text-[10px] font-mono">
                     <button
                       type="button"
                       onClick={() => setRagStep('hybrid')}
                       className={`px-2.5 py-0.5 rounded ${
                         ragStep === 'hybrid'
-                          ? 'bg-royal text-white font-semibold'
+                          ? 'bg-royal text-[#080807] font-semibold'
                           : 'text-muted hover:text-cream'
                       }`}
                     >
@@ -349,7 +349,7 @@ export const Projects: React.FC = () => {
                       onClick={() => setRagStep('llm')}
                       className={`px-2.5 py-0.5 rounded ${
                         ragStep === 'llm'
-                          ? 'bg-royal text-white font-semibold'
+                          ? 'bg-royal text-[#080807] font-semibold'
                           : 'text-muted hover:text-cream'
                       }`}
                     >
@@ -360,7 +360,7 @@ export const Projects: React.FC = () => {
                       onClick={() => setRagStep('eval')}
                       className={`px-2.5 py-0.5 rounded ${
                         ragStep === 'eval'
-                          ? 'bg-royal text-white font-semibold'
+                          ? 'bg-royal text-[#080807] font-semibold'
                           : 'text-muted hover:text-cream'
                       }`}
                     >
@@ -373,19 +373,19 @@ export const Projects: React.FC = () => {
                 {ragStep === 'hybrid' && (
                   <div className="p-5 flex flex-col gap-4 font-mono text-xs">
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                      <div className="p-3 rounded-lg bg-[#191714] hairline-royal">
                         <span className="text-[10px] text-royal-soft block mb-1">Dense Retrieval</span>
                         <div className="text-cream font-semibold">FAISS Indexing</div>
                         <span className="text-[10px] text-muted">Cosine Embedding Search</span>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                      <div className="p-3 rounded-lg bg-[#191714] hairline-royal">
                         <span className="text-[10px] text-royal-soft block mb-1">Sparse Retrieval</span>
                         <div className="text-cream font-semibold">BM25 Lexical</div>
                         <span className="text-[10px] text-muted">Keyword Token Freq</span>
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-lg bg-[#0b1028] hairline flex flex-col gap-2">
+                    <div className="p-3.5 rounded-lg bg-[#141310] hairline flex flex-col gap-2">
                       <div className="flex items-center justify-between text-[11px]">
                         <span className="text-cream font-semibold flex items-center gap-1.5">
                           <Filter className="w-3.5 h-3.5 text-royal-soft" />
@@ -403,7 +403,7 @@ export const Projects: React.FC = () => {
 
                 {ragStep === 'llm' && (
                   <div className="p-5 flex flex-col gap-3 font-mono text-xs">
-                    <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal flex items-center justify-between">
+                    <div className="p-3 rounded-lg bg-[#191714] hairline-royal flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Brain className="w-4 h-4 text-royal-soft" />
                         <span className="text-cream font-medium">DeepSeek-R1 (8B) Local</span>
@@ -413,7 +413,7 @@ export const Projects: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="p-3.5 rounded-lg bg-[#0b1028] hairline text-muted leading-relaxed text-[11px]">
+                    <div className="p-3.5 rounded-lg bg-[#141310] hairline text-muted leading-relaxed text-[11px]">
                       <span className="text-cream block font-sans font-medium mb-1">
                         Reasoning over Scientific Corpus:
                       </span>
@@ -430,12 +430,12 @@ export const Projects: React.FC = () => {
                       RAGAS-Based Quantitative Evaluation
                     </div>
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                      <div className="p-3 rounded-lg bg-[#191714] hairline-royal">
                         <span className="text-[10px] text-muted block mb-0.5">Answer Faithfulness</span>
                         <div className="text-xl font-bold text-emerald-400">0.94 / 1.0</div>
                         <span className="text-[9px] text-muted/80">Hallucination Prevention</span>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#0e163a] hairline-royal">
+                      <div className="p-3 rounded-lg bg-[#191714] hairline-royal">
                         <span className="text-[10px] text-muted block mb-0.5">Retrieval Relevance</span>
                         <div className="text-xl font-bold text-royal-soft">0.96 / 1.0</div>
                         <span className="text-[9px] text-muted/80">Context Precision</span>
@@ -502,7 +502,7 @@ export const Projects: React.FC = () => {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded-lg bg-[#0e1638] hairline-royal text-[11px] font-mono text-royal-soft"
+                    className="px-2.5 py-1 rounded-lg bg-[#191714] hairline-royal text-[11px] font-mono text-royal-soft"
                   >
                     {tech}
                   </span>

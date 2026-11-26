@@ -163,7 +163,7 @@ export const TerminalSection: React.FC = () => {
 
       <div className="rounded-2xl bg-[#070b1e] hairline-royal shadow-[0_20px_50px_rgba(2,4,14,0.7)] overflow-hidden max-w-4xl mx-auto font-mono text-xs">
         {/* Terminal Title Bar */}
-        <div className="px-4 py-3 bg-[#0d1433] hairline-b flex items-center justify-between">
+        <div className="px-4 py-3 bg-[#181613] hairline-b flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#ff5f56]/80" />
             <span className="w-3 h-3 rounded-full bg-[#ffbd2e]/80" />
@@ -199,7 +199,7 @@ export const TerminalSection: React.FC = () => {
         {/* Terminal Body */}
         <div
           onClick={() => inputRef.current?.focus()}
-          className="p-4 sm:p-6 min-h-[300px] max-h-[440px] overflow-y-auto flex flex-col gap-3 cursor-text bg-[#060918]"
+          className="p-4 sm:p-6 min-h-[300px] max-h-[440px] overflow-y-auto flex flex-col gap-3 cursor-text bg-[#0c0b0a]"
         >
           {history.map((line, idx) => (
             <div key={idx} className="leading-relaxed">

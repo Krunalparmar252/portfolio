@@ -39,7 +39,7 @@ export const ContactFooter: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <a
             href="mailto:krunalparmar090306@gmail.com"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-royal text-white font-sans font-medium text-base hover:bg-royal-deep shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_40px_rgba(59,130,246,0.55)] transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-royal text-white font-sans font-medium text-base hover:bg-royal-deep shadow-[0_0_30px_rgba(216, 206, 184,0.35)] hover:shadow-[0_0_40px_rgba(216, 206, 184,0.55)] transition-all duration-300"
           >
             <Mail className="w-5 h-5" />
             <span>krunalparmar090306@gmail.com</span>

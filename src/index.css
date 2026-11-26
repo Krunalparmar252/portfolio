@@ -5,19 +5,19 @@
 @tailwind utilities;
 
 :root {
-  --bg: #050714;
-  --bg-raise: #0c1126;
-  --surface: rgba(14, 20, 44, 0.55);
+  --bg: #080807;
+  --bg-raise: #12110f;
+  --surface: rgba(20, 19, 16, 0.65);
   --line: rgba(255, 255, 255, 0.09);
-  --line-royal: rgba(59, 130, 246, 0.3);
-  --line-cream: rgba(246, 239, 226, 0.2);
-  --ivory: #f8f7f4;
-  --cream: #f6efe2;
-  --cream-soft: #faecd6;
-  --muted: #94a3b8;
-  --royal: #3b82f6;
-  --royal-soft: #60a5fa;
-  --royal-deep: #1d4ed8;
+  --line-royal: rgba(216, 206, 184, 0.28);
+  --line-cream: rgba(232, 223, 208, 0.22);
+  --ivory: #f5f2eb;
+  --cream: #e8dfd0;
+  --cream-soft: #f2eadc;
+  --muted: #9a9488;
+  --royal: #d8ceb8;
+  --royal-soft: #e8dfd0;
+  --royal-deep: #9e927c;
 }
 
 html {
@@ -32,15 +32,15 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050714;
+  background: #080807;
 }
 ::-webkit-scrollbar-thumb {
-  background: #151e3f;
+  background: #24221d;
   border-radius: 3px;
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  border: 1px solid rgba(216, 206, 184, 0.25);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #d8ceb8;
 }
 
 /* Fine hairline borders */
@@ -69,8 +69,8 @@ html {
 }
 .royal-card-transition:hover {
   transform: translateY(-2px);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 16px 36px -10px rgba(5, 7, 20, 0.7), 0 0 24px rgba(59, 130, 246, 0.2);
+  border-color: rgba(216, 206, 184, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(216, 206, 184, 0.14);
 }
 
 /* Liquid Chrome / Metallic Silk Text Gradient */
@@ -78,18 +78,18 @@ html {
   background: linear-gradient(
     115deg,
     #ffffff 0%,
-    #f6efe2 20%,
-    #93c5fd 40%,
-    #ffffff 55%,
-    #3b82f6 75%,
-    #f6efe2 100%
+    #e8dfd0 22%,
+    #9e927c 42%,
+    #ffffff 56%,
+    #d8ceb8 78%,
+    #f5f2eb 100%
   );
   background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: chrome-flow 6s linear infinite;
-  filter: drop-shadow(0 6px 24px rgba(59, 130, 246, 0.28));
+  filter: drop-shadow(0 6px 24px rgba(216, 206, 184, 0.22));
 }
 
 @keyframes chrome-flow {
@@ -173,43 +173,43 @@ html {
   top: 14px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  background: rgba(13, 20, 48, 0.48) !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55),
-              inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
-              inset 0 -1px 2px rgba(0, 0, 0, 0.4),
-              0 0 24px rgba(59, 130, 246, 0.18) !important;
-  backdrop-filter: blur(24px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  background: rgba(18, 17, 15, 0.55) !important;
+  border: 1px solid rgba(232, 223, 208, 0.18) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65),
+              inset 0 1px 1.5px rgba(255, 255, 255, 0.3),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+              0 0 24px rgba(216, 206, 184, 0.12) !important;
+  backdrop-filter: blur(24px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
   border-radius: 14px !important;
 }
 
 .portfolio-dock-host .animated-top-dock__item {
-  color: #cbd5e1 !important;
-  background: rgba(255, 255, 255, 0.05) !important;
+  color: #b5ab99 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   font-family: "ThreeUI Fragment Mono", ui-monospace, monospace !important;
   font-size: 10.5px !important;
   letter-spacing: 0.08em !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 6px rgba(0, 0, 0, 0.2) !important;
   transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .portfolio-dock-host .animated-top-dock__item:hover,
 .portfolio-dock-host .animated-top-dock__item[aria-pressed="true"],
 .portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] {
-  color: #ffffff !important;
-  border-color: rgba(147, 197, 253, 0.7) !important;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.7) 0%, rgba(29, 78, 216, 0.5) 100%) !important;
-  box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #080807 !important;
+  border-color: rgba(232, 223, 208, 0.85) !important;
+  background: linear-gradient(135deg, rgba(232, 223, 208, 0.92) 0%, rgba(181, 171, 153, 0.85) 100%) !important;
+  box-shadow: 0 4px 18px rgba(216, 206, 184, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
 }
 
 .portfolio-dock-host .animated-top-dock__item[aria-pressed="true"] .animated-top-dock__icon svg,
 .portfolio-dock-host .animated-top-dock__item[data-dock-near="true"] .animated-top-dock__icon svg {
-  stroke: #93c5fd !important;
-  fill: #93c5fd !important;
+  stroke: #080807 !important;
+  fill: #080807 !important;
 }
 
 /* Remove the '+' logo button completely as requested */

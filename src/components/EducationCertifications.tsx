@@ -62,7 +62,7 @@ export const EducationCertifications: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Education (5 cols) */}
-        <div className="lg:col-span-5 edu-item flex flex-col gap-6 p-6 sm:p-8 rounded-2xl bg-[#090e24]/90 hairline-royal royal-card-transition">
+        <div className="lg:col-span-5 edu-item flex flex-col gap-6 p-6 sm:p-8 rounded-2xl bg-[#11100e]/90 hairline-royal royal-card-transition">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft">
               <GraduationCap className="w-5 h-5" />
@@ -88,7 +88,7 @@ export const EducationCertifications: React.FC = () => {
 
         {/* Certifications & Leadership (7 cols) */}
         <div className="lg:col-span-7 flex flex-col gap-4">
-          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#090e24]/90 hairline-royal royal-card-transition flex items-start gap-4">
+          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#11100e]/90 hairline-royal royal-card-transition flex items-start gap-4">
             <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft shrink-0">
               <Award className="w-4 h-4" />
             </div>
@@ -107,7 +107,7 @@ export const EducationCertifications: React.FC = () => {
             </div>
           </div>
 
-          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#090e24]/90 hairline-royal royal-card-transition flex items-start gap-4">
+          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#11100e]/90 hairline-royal royal-card-transition flex items-start gap-4">
             <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft shrink-0">
               <Award className="w-4 h-4" />
             </div>
@@ -126,7 +126,7 @@ export const EducationCertifications: React.FC = () => {
             </div>
           </div>
 
-          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#090e24]/90 hairline-royal royal-card-transition flex items-start gap-4">
+          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#11100e]/90 hairline-royal royal-card-transition flex items-start gap-4">
             <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft shrink-0">
               <BookOpen className="w-4 h-4" />
             </div>
@@ -140,7 +140,7 @@ export const EducationCertifications: React.FC = () => {
             </div>
           </div>
 
-          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#090e24]/90 hairline-royal royal-card-transition flex items-start gap-4">
+          <div className="edu-item p-5 sm:p-6 rounded-xl bg-[#11100e]/90 hairline-royal royal-card-transition flex items-start gap-4">
             <div className="w-9 h-9 rounded-lg bg-royal/15 hairline-royal flex items-center justify-center text-royal-soft shrink-0">
               <Users className="w-4 h-4" />
             </div>

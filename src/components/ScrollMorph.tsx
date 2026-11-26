@@ -116,12 +116,12 @@ export const ScrollMorph: React.FC = () => {
         <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible">
           <defs>
             <linearGradient id="royalMorphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(59, 130, 246, 0.24)" />
-              <stop offset="50%" stopColor="rgba(96, 165, 250, 0.10)" />
+              <stop offset="0%" stopColor="rgba(216, 206, 184, 0.24)" />
+              <stop offset="50%" stopColor="rgba(232, 223, 208, 0.10)" />
               <stop offset="100%" stopColor="rgba(246, 239, 226, 0.16)" />
             </linearGradient>
             <linearGradient id="royalMorphStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(96, 165, 250, 0.35)" />
+              <stop offset="0%" stopColor="rgba(232, 223, 208, 0.35)" />
               <stop offset="100%" stopColor="rgba(246, 239, 226, 0.2)" />
             </linearGradient>
           </defs>
@@ -137,7 +137,7 @@ export const ScrollMorph: React.FC = () => {
             ref={innerPathRef}
             d={initialPath}
             fill="none"
-            stroke="rgba(96, 165, 250, 0.22)"
+            stroke="rgba(232, 223, 208, 0.22)"
             strokeWidth="0.75"
             transform="scale(0.84)"
             style={{ transformOrigin: '200px 200px' }}

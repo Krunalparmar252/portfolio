@@ -89,7 +89,7 @@ export const Experience: React.FC = () => {
         {EXPERIENCES.map((exp, idx) => (
           <div
             key={idx}
-            className="exp-card relative rounded-2xl p-6 sm:p-8 bg-[#090e24]/90 hairline-royal royal-card-transition"
+            className="exp-card relative rounded-2xl p-6 sm:p-8 bg-[#11100e]/90 hairline-royal royal-card-transition"
           >
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
               <div>
@@ -112,7 +112,7 @@ export const Experience: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 font-mono text-xs text-royal-soft px-3 py-1.5 rounded-full bg-[#0e163a] hairline-royal whitespace-nowrap self-start">
+              <div className="flex items-center gap-1.5 font-mono text-xs text-royal-soft px-3 py-1.5 rounded-full bg-[#191714] hairline-royal whitespace-nowrap self-start">
                 <Calendar className="w-3 h-3 text-royal-soft" />
                 <span>{exp.period}</span>
               </div>
@@ -131,7 +131,7 @@ export const Experience: React.FC = () => {
               {exp.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 rounded-lg bg-[#0e163a] hairline-royal text-[11px] font-mono text-cream"
+                  className="px-2.5 py-1 rounded-lg bg-[#191714] hairline-royal text-[11px] font-mono text-cream"
                 >
                   {skill}
                 </span>

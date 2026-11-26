@@ -59,7 +59,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#050714] text-[#f8f7f4] selection:bg-[#3b82f6]/30 selection:text-[#f8f7f4]">
+    <div className="relative min-h-screen bg-[#080807] text-[#f8f7f4] selection:bg-[#d8ceb8]/30 selection:text-[#f8f7f4]">
       {/* Top Hairline Scroll Progress Indicator */}
       <ScrollProgress />
 

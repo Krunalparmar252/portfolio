@@ -147,7 +147,7 @@ export const WelcomeScreen: React.FC = () => {
     >
       <div
         ref={stickyRef}
-        className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-[#050714] select-none"
+        className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-[#080807] select-none"
       >
         {/* Ambient Stargate / Center Aperture Bloom */}
         <div
@@ -158,14 +158,14 @@ export const WelcomeScreen: React.FC = () => {
 
         {/* Subtle Radial Glow */}
         <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] pointer-events-none"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(216, 206, 184,0.12)_0%,transparent_70%)] pointer-events-none"
           aria-hidden="true"
         />
 
         {/* Main Content Box */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl">
           {/* Subtle Top Badge */}
-          <div className="mb-4 sm:mb-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-royal/30 bg-royal/10 text-royal-soft font-mono text-[10px] sm:text-[11px] uppercase tracking-widest shadow-[0_0_16px_rgba(59,130,246,0.2)]">
+          <div className="mb-4 sm:mb-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-royal/30 bg-royal/10 text-royal-soft font-mono text-[10px] sm:text-[11px] uppercase tracking-widest shadow-[0_0_16px_rgba(216, 206, 184,0.2)]">
             <Sparkles className="w-3 h-3 text-cream animate-pulse" />
             <span>
               <ScrambleText text="Krunal Parmar" duration={850} className="text-cream font-semibold" /> · Applied AI & Software Engineering
@@ -204,7 +204,7 @@ export const WelcomeScreen: React.FC = () => {
           className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer p-2 focus:outline-none"
           aria-label="Scroll or click to enter portfolio"
         >
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0e1635]/90 border border-royal/35 backdrop-blur-md shadow-[0_0_24px_rgba(59,130,246,0.25)] group-hover:border-royal/70 group-hover:shadow-[0_0_32px_rgba(59,130,246,0.4)] transition-all duration-300">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#191714]/90 border border-royal/35 backdrop-blur-md shadow-[0_0_24px_rgba(216, 206, 184,0.25)] group-hover:border-royal/70 group-hover:shadow-[0_0_32px_rgba(216, 206, 184,0.4)] transition-all duration-300">
             <span className="w-1.5 h-1.5 rounded-full bg-royal animate-ping" />
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-cream/90 group-hover:text-white transition-colors">
               Scroll to explore
