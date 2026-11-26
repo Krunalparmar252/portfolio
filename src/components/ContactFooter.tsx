@@ -14,7 +14,7 @@ export const ContactFooter: React.FC = () => {
 
   const scrollToTop = () => {
     if (window.__lenis) {
-      window.__lenis.scrollTo(0, { duration: 1.2 });
+      window.__lenis.scrollTo(0, { duration: 0.9 });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -114,7 +114,7 @@ export const ContactFooter: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <span className="text-royal-soft font-mono">Theme: Royal Azure & Cream</span>
+          <span className="text-royal-soft font-mono">Theme: Obsidian & Silk Bone</span>
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1.5 text-muted hover:text-royal-soft transition-colors"

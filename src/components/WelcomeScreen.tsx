@@ -44,13 +44,13 @@ export const WelcomeScreen: React.FC = () => {
       return () => st.kill();
     }
 
-    // Scroll-driven letter zoom-through animation with immediate response
+    // Scroll-driven letter zoom-through animation with 1:1 scrub (zero lag on fast Back-to-Top)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.35,
+        scrub: true,
         onUpdate: (self) => {
           // Disable pointer events when zooming past threshold
           if (self.progress > 0.88) {
@@ -58,65 +58,75 @@ export const WelcomeScreen: React.FC = () => {
           } else {
             sticky.style.pointerEvents = 'auto';
           }
+          // Guarantee clean reset at top (fixes Chrome background-clip layer eviction after fast scroll-to-top)
+          if (self.progress <= 0.005) {
+            word.style.opacity = '1';
+            word.style.transform = 'scale(1)';
+          }
         },
       },
     });
 
     // 1. Quote and scroll indicator fade out & slide down
-    tl.to(
+    tl.fromTo(
       quote,
+      { opacity: 1, y: 0, scale: 1 },
       {
         opacity: 0,
-        y: 40,
-        scale: 0.9,
+        y: 36,
+        scale: 0.94,
         ease: 'power2.in',
         duration: 0.25,
       },
       0
     );
 
-    tl.to(
+    tl.fromTo(
       scrollIndicator,
+      { opacity: 1, y: 0 },
       {
         opacity: 0,
-        y: 35,
+        y: 30,
         ease: 'power2.in',
         duration: 0.2,
       },
       0
     );
 
-    // 2. GPU-only letter zoom-through (transform + opacity only, zero layout/blur thrashing)
+    // 2. GPU-safe letter zoom-through (capped scale prevents Chrome GPU texture eviction)
     const isMobile = window.innerWidth < 768;
-    tl.to(
+    tl.fromTo(
       word,
+      { scale: 1, opacity: 1 },
       {
-        scale: isMobile ? 12 : 28,
+        scale: isMobile ? 5.5 : 8.5,
         opacity: 0,
         transformOrigin: '51% 50%',
         ease: 'power2.in',
         duration: 0.85,
       },
-      0.06
+      0
     );
 
     // 3. Stargate aperture bloom expanding through the center
     if (portal) {
-      tl.to(
+      tl.fromTo(
         portal,
+        { scale: 1, opacity: 0.25 },
         {
-          scale: 22,
-          opacity: 0.85,
+          scale: 12,
+          opacity: 0.75,
           duration: 0.85,
           ease: 'power2.in',
         },
-        0.08
+        0.05
       );
     }
 
     // 4. Fade out entire welcome overlay to reveal the main portfolio beneath
-    tl.to(
+    tl.fromTo(
       sticky,
+      { opacity: 1 },
       {
         opacity: 0,
         duration: 0.28,
