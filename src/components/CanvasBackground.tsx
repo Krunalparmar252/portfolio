@@ -65,9 +65,9 @@ const FRAGMENT_SHADER = `
     float f = fbm(uv + 2.1 * r);
 
     // Sculpted chiaroscuro light ribbons (high contrast folds)
-    float ribbonCream = smoothstep(0.56, 0.86, f) * 0.42;
-    float ribbonBlue  = smoothstep(0.42, 0.78, q.x * 0.65 + r.y * 0.35) * 0.34;
-    float sharpCrest  = pow(max(0.0, 1.0 - abs(f - 0.62) * 5.2), 2.5) * 0.22;
+    float ribbonCream = smoothstep(0.54, 0.84, f) * 0.58;
+    float ribbonBlue  = smoothstep(0.40, 0.76, q.x * 0.65 + r.y * 0.35) * 0.46;
+    float sharpCrest  = pow(max(0.0, 1.0 - abs(f - 0.62) * 5.2), 2.3) * 0.28;
 
     vec3 obsidian   = vec3(0.018, 0.025, 0.065); // Deep midnight obsidian
     vec3 warmCream  = vec3(0.965, 0.937, 0.886); // #f6efe2

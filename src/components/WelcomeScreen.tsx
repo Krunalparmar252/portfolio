@@ -176,7 +176,7 @@ export const WelcomeScreen: React.FC = () => {
           <div
             ref={wordRef}
             onClick={handleEnterClick}
-            className="welcome-word font-funky font-extrabold tracking-tighter chrome-text will-change-transform text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[13rem] leading-none cursor-pointer"
+            className="welcome-word font-funky font-extrabold tracking-tighter chrome-text will-change-transform text-[clamp(2.25rem,10.5vw,9.8rem)] leading-none cursor-pointer whitespace-nowrap"
             style={{ transformOrigin: '51% 50%' }}
             title="Click or scroll to enter"
           >
